@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - GeoWay</title>
+<link rel="stylesheet" href="assets/css/main.css">
+<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+
+<style>
+/* Estilos básicos para el menú */
+#menu {
+    background-color: rgba(30, 35, 45, 0.95);
+    background-image: url("images/city.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+#menu ul li a {
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* SOLUCIÓN DEFINITIVA PARA LA NAVEGACIÓN */
+/* Resetear estilos de navegación que podrían estar interfiriendo */
+#header nav {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 4.25em;
+}
+
+/* Eliminamos la estructura original del selector de idioma */
+#header nav .language-selector {
+    position: absolute;
+    right: 6em; /* Ajustar según sea necesario */
+    top: 0;
+    height: 4.25em;
+    line-height: 4.25em;
+    display: flex;
+    align-items: center;
+}
+
+#header nav ul {
+    height: 4.25em;
+    line-height: 4.25em;
+}
+
+#header nav ul li.special {
+    height: 4.25em;
+    line-height: 4.25em;
+}
+
+#header nav .menuToggle {
+    height: 4.25em;
+    line-height: 4.25em;
+}
+
+/* Estilos específicos para el selector de idioma */
+.language-selector a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 5px;
+}
+
+.language-selector a.active {
+    font-weight: bold;
+}
+
+.language-selector .separator {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos mínimos necesarios para los elementos de formulario */
+#contact-form input,
+#contact-form select,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.75em 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.9);
+}
+
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    background-color: white;
+    outline-style: solid;
+    outline-width: thin;
+    outline-color: gray;
+    outline-offset: -1px;
+}
+
+#contact-form select {
+    text-transform: none;
+}
+
+#contact-form input[type="submit"],
+#contact-form input[type="reset"] {
+    cursor: pointer;
+    width: auto;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    margin-bottom: 0;
+}
+
+#contact-form input[type="submit"]:focus,
+#contact-form input[type="reset"]:focus {
+    outline: none;
+}
+
+/* Animación para botones de contacto */
+.actions .primary {
+    transition: all 0.3s ease;
+}
+.actions .primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Estilo para la sección de contact info */
+.contact-info {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+.contact-info ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.contact-info ul li {
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+}
+.contact-info .icon {
+    margin-right: 1em;
+    color: #4696e5;
+}
+
+/* Estilos para el formulario */
+#contact-form input,
+#contact-form select,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.75em 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.9);
+}
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    background-color: white;
+    outline-style: solid;
+    outline-width: thin;
+    outline-color: gray;
+    outline-offset: -1px;
+}
+#contact-form select {
+    text-transform: none;
+}
+#contact-form input[type="submit"],
+#contact-form input[type="reset"] {
+    cursor: pointer;
+    width: auto;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    margin-bottom: 0;
+}
+#contact-form input[type="submit"]:focus,
+#contact-form input[type="reset"]:focus {
+    outline: none;
+}
+
+/* Animación para botones de contacto */
+.actions .primary {
+    transition: all 0.3s ease;
+}
+.actions .primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Estilo para la sección de contact info */
+.contact-info {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+.contact-info ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.contact-info ul li {
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+}
+.contact-info .icon {
+    margin-right: 1em;
+    color: #4696e5;
+}
+</style>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG2LKLLKE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7SG2LKLLKE');
+</script>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html">GeoWay</a></h1>
+        <nav id="nav">
+            <!-- Estructura completamente nueva para la navegación -->
+            <ul class="main-nav">
+                <li class="language-selector">
+                    <a href="#" class="active" id="en-link">EN</a>
+                    <span class="separator">|</span>
+                    <a href="#" id="es-link">ES</a>
+                </li>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li>
+                                <a href="index.html">
+                                    <span class="lang-en">Home</span>
+                                    <span class="lang-es">Inicio</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="generic.html">
+                                    <span class="lang-en">Projects</span>
+                                    <span class="lang-es">Proyectos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog.html">
+                                    <span class="lang-en">Lab</span>
+                                    <span class="lang-es">Laboratorio de ideas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html">
+                                    <span class="lang-en">Contact Us</span>
+                                    <span class="lang-es">Contáctanos</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <img src="images/Logo5.png" alt="GeoWay Logo" width="20%" height="20%"/><br />
+            <h2>
+                <span class="lang-en">Contact</span>
+                <span class="lang-es">Contáctanos</span>
+            </h2>
+            <p>
+                <span class="lang-en">Get in touch with us</span>
+                <span class="lang-es">Ponte en contacto con nosotros</span>
+            </p>
+        </header>
+        <section class="wrapper style5">
+            <div class="inner">
+                <section>
+                    <div class="row">
+                        <div class="col-6 col-12-medium">
+                            <h4>
+                                <span class="lang-en">Contact Information</span>
+                                <span class="lang-es">Información de Contacto</span>
+                            </h4>
+                            <div class="contact-info">
+                                <ul>
+                                    <li><span class="icon solid fa-envelope"></span> info@geoway.io</li>
+                                    <li><span class="icon solid fa-map-marker-alt"></span> Berlin, Germany</li>
+                                </ul>
+                            </div>
+                            <p>
+                                <span class="lang-en">You can reach out to us via email to inquire about our courses or report any issues with the training platform using the following form. We will respond to your inquiries promptly.</span>
+                                <span class="lang-es">Puede comunicarse con nosotros por correo electrónico para consultar sobre nuestros cursos o informar sobre cualquier problema con la plataforma de formación utilizando el siguiente formulario. Responderemos a sus consultas con prontitud.</span>
+								 
+							</p>
+                        </div>
+                        <div class="col-6 col-12-medium">
+                            <div class="box alt">
+                                <div class="image fit">
+                                    <img src="images/team1.png" alt="City map" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    
+                    <!-- Formulario -->
+                    <section id="contact-form">
+                        <h4>
+                            <span class="lang-en">Contact Form</span>
+                            <span class="lang-es">Formulario de Contacto</span>
+                        </h4>
+                        <form method="post" action="https://formspree.io/f/xbjnblbp">
+                            <div class="row gtr-uniform">
+                                <div class="col-6 col-12-xsmall">
+                                    <input type="text" name="name" id="name" value="" placeholder="Name" required />
+                                </div>
+                                <div class="col-6 col-12-xsmall">
+                                    <input type="email" name="email" id="email" value="" placeholder="Email" required />
+                                </div>
+                                <div class="col-12">
+                                    <select name="category" id="category">
+                                        <option value="">
+                                            <span class="lang-en">Select a category</span>
+                                            <span class="lang-es">Seleccione una categoría</span>
+                                        </option>
+                                        <option value="general">
+                                            <span class="lang-en">General information</span>
+                                            <span class="lang-es">Información general</span>
+                                        </option>
+                                        <option value="support">
+                                            <span class="lang-en">Projects or Technical Support</span>
+                                            <span class="lang-es">Proyectos o Soporte Técnico</span>
+                                        </option>
+                                        <option value="training">
+                                            <span class="lang-en">Information about a course or training</span>
+                                            <span class="lang-es">Información sobre un curso o formación</span>
+                                        </option>
+                                        <option value="application">
+                                            <span class="lang-en">Information about an application or use case</span>
+                                            <span class="lang-es">Información sobre una aplicación o caso de uso</span>
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-4 col-12-small">
+                                    <input type="radio" id="priority-low" name="priority" value="low" checked>
+                                    <label for="priority-low">
+                                        <span class="lang-en">Low Priority</span>
+                                        <span class="lang-es">Prioridad Baja</span>
+                                    </label>
+                                </div>
+                                <div class="col-4 col-12-small">
+                                    <input type="radio" id="priority-normal" name="priority" value="normal">
+                                    <label for="priority-normal">
+                                        <span class="lang-en">Normal Priority</span>
+                                        <span class="lang-es">Prioridad Normal</span>
+                                    </label>
+                                </div>
+                                <div class="col-4 col-12-small">
+                                    <input type="radio" id="priority-high" name="priority" value="high">
+                                    <label for="priority-high">
+                                        <span class="lang-en">High Priority</span>
+                                        <span class="lang-es">Prioridad Alta</span>
+                                    </label>
+                                </div>
+                                <div class="col-6 col-12-small">
+                                    <input type="checkbox" id="copy" name="copy">
+                                    <label for="copy">
+                                        <span class="lang-en">Email me a copy</span>
+                                        <span class="lang-es">Enviarme una copia</span>
+                                    </label>
+                                </div>
+                                <div class="col-6 col-12-small">
+                                    <input type="checkbox" id="human" name="human" checked>
+                                    <label for="human">
+                                        <span class="lang-en">Not a robot</span>
+                                        <span class="lang-es">No soy un robot</span>
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li>
+                                            <input type="submit" value="Send Message" class="primary" />
+                                        </li>
+                                        <li>
+                                            <input type="reset" value="Reset" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+            </div>
+        </section>
+    </article>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+						<li><a href="https://x.com/tu_usuario" aria-label="X" style="font-weight: bold; font-size: 35px;">𝕏</a></li>
+						<li><a href="https://instagram.com/tu_usuario" class="icon brands fa-instagram" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-youtube" aria-label="YouTube"><span class="label">YouTube</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2025 GEOWAY, <a href="https://geo-way.github.io/GeoWay.io/">– An Open Geospatial Initiative</a> </li> 
+						<li>
+							<span class="lang-en">All rights reserved.</span>
+							<span class="lang-es">Todos los derechos reservados.</span>
+						</li><br>
+						Berlin - Germany
+						<li><a href="privacy.html">
+							<span class="lang-en">Privacy Policy</span>
+							<span class="lang-es">Política de Privacidad</span>
+						</a></li>
+					</ul>
+					<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+				</footer>
+		</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- Language Switching Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Language switcher functionality
+    const enLink = document.getElementById('en-link');
+    const esLink = document.getElementById('es-link');
+    const enElements = document.querySelectorAll('.lang-en');
+    const esElements = document.querySelectorAll('.lang-es');
+    
+    // Default to English
+    setLanguage('en');
+    
+    enLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        setLanguage('en');
+    });
+    
+    esLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        setLanguage('es');
+    });
+    
+    function setLanguage(lang) {
+        if (lang === 'en') {
+            enLink.classList.add('active');
+            esLink.classList.remove('active');
+            enElements.forEach(el => el.style.display = 'inline');
+            esElements.forEach(el => el.style.display = 'none');
+            document.documentElement.lang = 'en';
+        } else if (lang === 'es') {
+            esLink.classList.add('active');
+            enLink.classList.remove('active');
+            esElements.forEach(el => el.style.display = 'inline');
+            enElements.forEach(el => el.style.display = 'none');
+            document.documentElement.lang = 'es';
+        }
+    }
+});
+</script>
+
+</body>
+</html>

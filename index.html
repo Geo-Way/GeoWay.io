@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GeoWay - TBI</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- favoricon -->
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <!-- Font Awesome para iconos modernos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <style>
+
+/* Estilo para menú con imagen de fondo de curvas de nivel topográficas más visibles */
+#menu {
+    background-color: rgba(30, 35, 45, 0.95);
+    background-image: url("images/city.png");
+    background-size: cover;
+    background-position: center;
+	background-blend-mode: overlay;
+}
+
+#menu ul li a {
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+            /* Estilo personalizado para sección About */
+            .about-section {
+                background-color: #ffffff !important;
+                color: #333333 !important;
+                padding: 4em 0;
+            }
+            
+            .about-section h2 {
+                color: #333333 !important;
+            }
+            
+            .about-section p {
+                color: #555555 !important;
+            }
+            
+            /* Mejora de los iconos sociales en el footer - sin recuadros, mejor alineados */
+            #footer .icons {
+                display: flex;
+                justify-content: center;
+                margin: 0 0 2em 0;
+                flex-wrap: wrap;
+            }
+            
+            #footer .icons li {
+                padding: 0 1em;
+            }
+            
+            #footer .icons a {
+                box-shadow: none;
+                border: none;
+                transition: all 0.3s ease;
+                font-size: 1.4em;
+                color: rgba(255, 255, 255, 0.8);
+                position: relative;
+                top: 0;
+            }
+            
+            #footer .icons a:hover {
+                top: -3px;
+                color: #ff9e4f;
+                position: relative;
+            }
+            
+            /* Selector de idioma simplificado y profesional */
+            .language-selector {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            
+            .language-selector a {
+                color: rgba(255, 255, 255, 0.7);
+                text-decoration: none;
+                font-size: 0.9em;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                transition: color 0.3s ease;
+                padding: 0 0.4em;
+            }
+            
+            .language-selector .separator {
+                color: rgba(255, 255, 255, 0.4);
+                margin: 0 0.2em;
+            }
+            
+            .language-selector a:hover,
+            .language-selector a.active {
+                color: white;
+            }
+            
+            /* Asegurarnos de que nav contenga los elementos correctamente */
+            #header nav {
+                display: flex;
+                align-items: center;
+            }
+            
+            @media screen and (max-width: 736px) {
+                .language-selector {
+                    margin-right: 5px;
+                }
+            }
+            
+            /* Contenedor para textos en diferentes idiomas */
+            .lang-en {
+                display: block;
+            }
+            
+            .lang-es {
+                display: none;
+            }
+            
+            /* Hacemos responsive el selector de idioma en móviles */
+            @media screen and (max-width: 480px) {
+                .language-selector {
+                    right: 4em;
+                }
+            }
+        </style>
+ 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG2LKLLKE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7SG2LKLLKE');
+</script>
+
+<script>
+// Define dataLayer and the gtag function.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+ 
+// Set default consent for specific regions according to your requirements
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'regions':[<list of ISO 3166-2 region codes>]
+});
+
+// Set default consent for all other regions according to your requirements
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied'
+});
+</script>
+	</head>
+	
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">GeoWay</a></h1>
+						<nav id="nav">
+                            <!-- Selector de idioma simplificado -->
+                            <div class="language-selector">
+                                <a href="#" class="active" id="en-link">EN</a>
+                                <span class="separator">|</span>
+                                <a href="#" id="es-link">ES</a>
+                            </div><ul><li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu"><ul><li><a href="index.html">
+                                                    <span class="lang-en">Home</span>
+                                                    <span class="lang-es">Inicio</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="generic.html">
+                                                    <span class="lang-en">Projects</span>
+                                                    <span class="lang-es">Proyectos</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="blog.html">
+                                                    <span class="lang-en">lab</span>
+                                                    <span class="lang-es">laboratorio de ideas</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="contact.html">
+                                                    <span class="lang-en">Contact Us</span>
+                                                    <span class="lang-es">Contáctanos</span>
+                                                </a>
+                                            </li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<img src="images/Logo5.png" alt="GeoWay Logo" width="40%" height="40%"/><br />
+							<br />
+							<h2>Know your space</h2>
+							<header class="major">
+							<!-- Contenido en inglés -->
+							<p class="lang-en">"A platform for experimentation and open development in geospatial technologies"</p>
+							<!-- Contenido en español -->
+							<p class="lang-es">"Una plataforma para la experimentación y el desarrollo abierto en tecnologías geoespaciales"</p>
+							<br />
+							</header>
+							<!-- Contenido en inglés -->
+							<div class="lang-en">
+                            	With the support of <a href="https://www.startup-incubator.berlin/?lang=en" target="_blank">StarUpIncubator Berlin </a><img src="images/sib.png" alt="StarUpIncubator Logo" width="50" height="20" style="vertical-align: middle;"> and <a href="https://www.plugandplaytechcenter.com/" target="_blank"> PlugAndPlay </a><img src="images/plug.png" alt="PlugAndPlay Logo" width="50" height="20" style="vertical-align: middle;">
+                            </div>
+                            <!-- Contenido en español -->
+							<div class="lang-es">
+                            	Con el apoyo de <a href="https://www.startup-incubator.berlin/?lang=en" target="_blank">StarUpIncubator Berlin </a><img src="images/sib.png" alt="StarUpIncubator Logo" width="50" height="20" style="vertical-align: middle;"> y <a href="https://www.plugandplaytechcenter.com/" target="_blank"> PlugAndPlay </a><img src="images/plug.png" alt="PlugAndPlay Logo" width="50" height="20" style="vertical-align: middle;">
+                            </div>
+
+						<a href="#one" class="more scrolly">
+                            <span class="lang-en">Learn More</span>
+                            <span class="lang-es">Más información</span>
+                        </a>
+					</section>
+
+				<!-- One - About GeoWay (ahora con fondo blanco) -->
+					<section id="one" class="wrapper about-section">
+						<div class="inner">
+							<header class="major">
+								<h2>
+                                    <span class="lang-en">About GeoWay</span>
+                                    <span class="lang-es">Sobre GeoWay</span>
+                                </h2>
+								<!-- Contenido en inglés -->
+                                <div class="lang-en">
+                                    <p>GEOway is a platform based on geospatial technologies that combines lightweight tools, functional prototypes, and real-world cases to explore the potential of spatial data in technical and territorial contexts. From geodata analysis to management systems, its developments aim to transform data into useful knowledge through the use of open technologies.<br>
+                                    <br>
+                                    GEOway is more than just a project showcase—it's a dynamic space where geospatial ideas take shape. We explore, prototype, and share open solutions that transform spatial data into actionable insights. By bridging research and real-world application, This platform fosters innovation at the intersection of science, territory, and practical needs.</p>
+                                </div>
+                                <!-- Contenido en español -->
+                                <div class="lang-es">
+                                    <p>GEOway es una plataforma basada en tecnologías geoespaciales que combina herramientas ligeras, prototipos funcionales y casos reales para explorar el potencial de los datos espaciales en contextos técnicos y territoriales. Desde el análisis de geodatos hasta los sistemas de gestión, sus desarrollos buscan transformar los datos en conocimiento útil mediante el uso de tecnologías abiertas.<br>
+                                    <br>
+                                    GEOway es más que un simple escaparate de proyectos: es un espacio dinámico donde las ideas geoespaciales toman forma. Exploramos, prototipamos y compartimos soluciones abiertas que transforman los datos espaciales en conocimientos prácticos. Al tender puentes entre la investigación y la aplicación real, esta plataforma fomenta la innovación en la intersección de la ciencia, el territorio y las necesidades prácticas.</p>
+                                </div>
+							</header>
+						</div>
+					</section>
+					
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+							<div class="image"><img src="images/file-2025l.avif" alt="Earth Observation" /></div><div class="content">
+								<h2>
+                                    <span class="lang-en">EO - Earth Observation Satellite - and Data Analytics</span>
+                                    <span class="lang-es">EO - Observación de la Tierra y Análisis de Datos</span>
+                                </h2>
+								<!-- Contenido en inglés -->
+                                <p class="lang-en">GEOway develops functional prototypes and conceptual tools based on open technologies and spatial analytical models.
+									Each initiative stems from concrete use cases, aiming to transform geospatial data into actionable and useful knowledge.
+									We integrate principles of spatial analysis, modeling, and visualization to deliver personalized insights and multi-scale assessments relevant to governments, companies, researchers, technologists, and both public and private institutions.</p>
+                                <!-- Contenido en español -->
+                                <p class="lang-es">GEOway desarrolla prototipos funcionales y herramientas conceptuales basadas en tecnologías abiertas y modelos analíticos espaciales.
+									Cada iniciativa surge de casos de uso concretos, con el objetivo de transformar los datos geoespaciales en conocimiento útil y aplicable.
+									Integramos principios de análisis espacial, modelado y visualización para ofrecer conocimientos personalizados y evaluaciones multiescala relevantes para gobiernos, empresas, investigadores, tecnólogos e instituciones tanto públicas como privadas.</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/mov.gif" alt="Geospatial Solutions" /></div><div class="content">
+								<h2>
+                                    <span class="lang-en">Turning Spatial Data into Insight</span>
+                                    <span class="lang-es">Convirtiendo Datos Espaciales en Conocimiento</span>
+                                </h2>
+								<!-- Contenido en inglés -->
+                                <p class="lang-en">Rather than accumulating content, GEOway curates and communicates key advances in the geospatial field. Through technical notes, interactive visualizations, and explanatory tools, we aim to democratize access to geospatial knowledge.
+									Our focus is on making the potential of spatial data visible and actionable across sectors such as agriculture, energy, environment, transportation, urban planning, and land management.</p>
+                                <!-- Contenido en español -->
+                                <p class="lang-es">En lugar de acumular contenido, GEOway selecciona y comunica avances clave en el campo geoespacial. A través de notas técnicas, visualizaciones interactivas y herramientas explicativas, buscamos democratizar el acceso al conocimiento geoespacial.
+									Nuestro enfoque es hacer que el potencial de los datos espaciales sea visible y aplicable en sectores como la agricultura, la energía, el medio ambiente, el transporte, la planificación urbana y la gestión del territorio.</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/pic03.png" alt="Risk Management" /></div><div class="content">
+								<h2>
+                                    <span class="lang-en">Support for Risk and Emergency Management</span>
+                                    <span class="lang-es">Apoyo a la Gestión de Riesgos y Emergencias</span>
+                                </h2>
+								<!-- Contenido en inglés -->
+                                <p class="lang-en">GEOway contributes to disaster and risk management by delivering critical geospatial information for hazard assessment, early warning, and post-disaster analysis.
+									Its tools support every phase of the risk cycle — from prevention and preparedness to response and recovery — enabling informed decision-making for institutions, planners, and communities.</p>
+                                <!-- Contenido en español -->
+                                <p class="lang-es">GEOway contribuye a la gestión de desastres y riesgos proporcionando información geoespacial crítica para la evaluación de peligros, la alerta temprana y el análisis posterior a los desastres.
+									Sus herramientas apoyan cada fase del ciclo de riesgo —desde la prevención y preparación hasta la respuesta y recuperación— permitiendo la toma de decisiones informadas para instituciones, planificadores y comunidades.</p>
+							</div>
+						</section>
+					</section>
+
+				<!-- Services -->
+					<section id="services" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>
+                                    <span class="lang-en">Areas of Application</span>
+                                    <span class="lang-es">Áreas de Aplicación</span>
+                                </h2>
+								<p>
+                                    <span class="lang-en">"Geospatial Capabilities in Action"</span>
+                                    <span class="lang-es">"Capacidades Geoespaciales en Acción"</span>
+                                </p>
+							</header>
+							<ul class="features">
+								<li class="icon solid fa-graduation-cap"> 
+									<h3>
+                                        <span class="lang-en">Knowledge Made Applicable</span>
+                                        <span class="lang-es">Conocimiento Aplicable</span>
+                                    </h3>
+									<!-- Contenido en inglés -->
+                                    <p class="lang-en">GEOway turns geospatial knowledge into actionable insight.
+										Through curated content and practical resources, we bridge the gap between advanced technologies and real-world applications — helping users apply spatial thinking to real challenges.</p>
+                                    <!-- Contenido en español -->
+                                    <p class="lang-es">GEOway convierte el conocimiento geoespacial en información práctica.
+										A través de contenido seleccionado y recursos prácticos, tendemos un puente entre las tecnologías avanzadas y las aplicaciones del mundo real, ayudando a los usuarios a aplicar el pensamiento espacial a desafíos reales.</p>
+								</li>
+								<li class="icon solid fa-chart-line">
+									<h3>
+                                        <span class="lang-en">Domain-Focused Prototypes and Use Cases</span>
+                                        <span class="lang-es">Prototipos y Casos de Uso por Dominio</span>
+                                    </h3>
+									<!-- Contenido en inglés -->
+                                    <p class="lang-en">We develop and display customized geospatial tools that respond to challenges in sectors such as renewable energy, agriculture, risk management, and land use.
+										These prototypes serve as examples of how geospatial thinking can be adapted to real-world contexts.</p>
+                                    <!-- Contenido en español -->
+                                    <p class="lang-es">Desarrollamos y mostramos herramientas geoespaciales personalizadas que responden a desafíos en sectores como energías renovables, agricultura, gestión de riesgos y uso del suelo.
+										Estos prototipos sirven como ejemplos de cómo el pensamiento geoespacial puede adaptarse a contextos reales.</p>
+								</li>
+								<li class="icon solid fa-laptop">
+									<h3>
+                                        <span class="lang-en">Interactive Visual Exploration</span>
+                                        <span class="lang-es">Exploración Visual Interactiva</span>
+                                    </h3>
+									<!-- Contenido en inglés -->
+                                    <p class="lang-en">Through lightweight web tools, GEOway enables users to explore spatial patterns, trends, and indicators dynamically.
+										Our visualizations aim to make complex data more intuitive and useful for interpretation, communication, and action.</p>
+                                    <!-- Contenido en español -->
+                                    <p class="lang-es">A través de herramientas web ligeras, GEOway permite a los usuarios explorar patrones espaciales, tendencias e indicadores de forma dinámica.
+										Nuestras visualizaciones buscan hacer que los datos complejos sean más intuitivos y útiles para la interpretación, comunicación y acción.</p>
+								</li>
+								<li class="icon solid fa-robot">
+									<h3>
+                                        <span class="lang-en">Predictive Modeling and Spatial AI</span>
+                                        <span class="lang-es">Modelado Predictivo e IA Espacial</span>
+                                    </h3>
+									<!-- Contenido en inglés -->
+                                    <p class="lang-en">Forecasting and spatial reasoning from open data.
+
+We experiment with AI-driven workflows for:
+
+Predicting land use change
+
+Estimating crop yield from EO time series
+
+Assessing flood or fire risk zones based on environmental indicators
+
+These models are not commercial products, but exploratory examples of how machine learning can enhance spatial decision-making in applied contexts.</p>
+                                    <!-- Contenido en español -->
+                                    <p class="lang-es">Previsión y razonamiento espacial a partir de datos abiertos.
+
+Experimentamos con flujos de trabajo basados en IA para:
+
+Predecir cambios en el uso del suelo
+
+Estimar rendimientos de cultivos a partir de series temporales de observación terrestre
+
+Evaluar zonas de riesgo de inundación o incendio basadas en indicadores ambientales
+
+Estos modelos no son productos comerciales, sino ejemplos exploratorios de cómo el aprendizaje automático puede mejorar la toma de decisiones espaciales en contextos aplicados.</p>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+								<h2>
+                                    <span class="lang-en">Explore Our Projects and Initiatives</span>
+                                    <span class="lang-es">Explora Nuestros Proyectos e Iniciativas</span>
+                                </h2>
+								<!-- Contenido en inglés -->
+                                <p class="lang-en">Discover a selection of functional prototypes, experimental tools, and applied use cases developed within GEOway.
+									From advanced spatial analysis to real-world applications across sectors, each project reflects our commitment to turning geospatial data into meaningful solutions.</p>
+                                <!-- Contenido en español -->
+                                <p class="lang-es">Descubre una selección de prototipos funcionales, herramientas experimentales y casos de uso aplicados desarrollados dentro de GEOway.
+									Desde análisis espaciales avanzados hasta aplicaciones reales en diversos sectores, cada proyecto refleja nuestro compromiso de convertir los datos geoespaciales en soluciones significativas.</p>
+							</header>
+							<ul class="actions stacked">
+							<br><br><br>
+								<li><a href="generic.html" class="button fit primary">
+                                    <span class="lang-en">Projects</span>
+                                    <span class="lang-es">Proyectos</span>
+                                </a></li>
+							</ul>
+						</div>
+						<div class="inner">
+							<header>
+								<!-- Contenido en inglés -->
+                                <p class="lang-en">Don't miss the opportunity to explore our work and immerse yourself in a world of possibilities!</p>
+                                <!-- Contenido en español -->
+                                <p class="lang-es">¡No pierdas la oportunidad de explorar nuestro trabajo y sumergirte en un mundo de posibilidades!</p>
+							</header>
+							<ul class="actions stacked">
+								<li><a href="contact.html" class="button fit">
+                                    <span class="lang-en">Contact us</span>
+                                    <span class="lang-es">Contáctanos</span>
+                                </a></li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+							<li><a href="https://x.com/tu_usuario" aria-label="X" style="font-weight: bold; font-size: 35px;">𝕏</a></li>
+							<li><a href="https://instagram.com/tu_usuario" class="icon brands fa-instagram" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-youtube" aria-label="YouTube"><span class="label">YouTube</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; 2025 GEOWAY, <a href="https://geo-way.github.io/GeoWay.io/">– An Open Geospatial Initiative</a> </li> 
+							<li>
+                                <span class="lang-en">All rights reserved.</span>
+                                <span class="lang-es">Todos los derechos reservados.</span>
+                            </li><br>
+							Berlin - Germany
+							<li><a href="privacy.html">
+                                <span class="lang-en">Privacy Policy</span>
+                                <span class="lang-es">Política de Privacidad</span>
+                            </a></li>
+						</ul>
+						<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+					</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+            <!-- Script para el cambio de idioma -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Obtener los elementos del selector de idioma
+                    const enLink = document.getElementById('en-link');
+                    const esLink = document.getElementById('es-link');
+                    
+                    // Función para cambiar el idioma
+                    function changeLanguage(lang) {
+                        // Ocultar todos los elementos de idioma
+                        const enElements = document.querySelectorAll('.lang-en');
+                        const esElements = document.querySelectorAll('.lang-es');
+                        
+                        if (lang === 'en') {
+                            // Mostrar elementos en inglés, ocultar español
+                            enElements.forEach(el => el.style.display = 'block');
+                            esElements.forEach(el => el.style.display = 'none');
+                            
+                            // Actualizar clases activas
+                            enLink.classList.add('active');
+                            esLink.classList.remove('active');
+                        } else {
+                            // Mostrar elementos en español, ocultar inglés
+                            enElements.forEach(el => el.style.display = 'none');
+                            esElements.forEach(el => el.style.display = 'block');
+                            
+                            // Actualizar clases activas
+                            enLink.classList.remove('active');
+                            esLink.classList.add('active');
+                        }
+                        
+                        // Guardar preferencia en localStorage
+                        localStorage.setItem('geoWayLanguage', lang);
+                    }
+                    
+                    // Asignar eventos de clic
+                    enLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        changeLanguage('en');
+                    });
+                    
+                    esLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        changeLanguage('es');
+                    });
+                    
+                    // Cargar idioma guardado o predeterminado
+                    const savedLanguage = localStorage.getItem('geoWayLanguage') || 'en';
+                    changeLanguage(savedLanguage);
+                });
+            </script>
+	</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GeoWay - SEN4CAS</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <!-- Font Awesome para iconos modernos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <style>
+            /* Estilo para menú con imagen de fondo de curvas de nivel topográficas más visibles */
+            #menu {
+                background-color: rgba(30, 35, 45, 0.95);
+                background-image: url("images/city.png");
+                background-size: cover;
+                background-position: center;
+	            background-blend-mode: overlay;
+            }
+
+            #menu ul li a {
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Estilos compartidos con index */
+            .language-selector {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            
+            .language-selector a {
+                color: rgba(255, 255, 255, 0.7);
+                text-decoration: none;
+                font-size: 0.9em;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                transition: color 0.3s ease;
+                padding: 0 0.4em;
+            }
+            
+            .language-selector .separator {
+                color: rgba(255, 255, 255, 0.4);
+                margin: 0 0.2em;
+            }
+            
+            .language-selector a:hover,
+            .language-selector a.active {
+                color: white;
+            }
+            
+            /* Asegurarnos de que nav contenga los elementos correctamente */
+            #header nav {
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Mejora de los iconos sociales en el footer */
+            #footer .icons {
+                display: flex;
+                justify-content: center;
+                margin: 0 0 2em 0;
+                flex-wrap: wrap;
+            }
+            
+            #footer .icons li {
+                padding: 0 1em;
+            }
+            
+            #footer .icons a {
+                box-shadow: none;
+                border: none;
+                transition: all 0.3s ease;
+                font-size: 1.4em;
+                color: rgba(255, 255, 255, 0.8);
+                position: relative;
+                top: 0;
+            }
+            
+            #footer .icons a:hover {
+                top: -3px;
+                color: #ff9e4f;
+                position: relative;
+            }
+            
+            /* Estilos específicos para la página de proyectos */
+            .project-card {
+                margin-bottom: 2em;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            
+            .project-image {
+                border-radius: 5px;
+                overflow: hidden;
+                margin-bottom: 1em;
+                display: block;
+            }
+            
+            .project-image img {
+                transition: transform 0.5s ease;
+            }
+            
+            .project-image:hover img {
+                transform: scale(1.05);
+            }
+            
+            .project-title {
+                margin-bottom: 0.5em;
+                color: #3d4449;
+            }
+            
+            .project-category {
+                font-size: 0.9em;
+                color: #7f888f;
+                margin-bottom: 1em;
+            }
+            
+            .project-description {
+                text-align: justify;
+                margin-bottom: 1.5em;
+            }
+            
+            .project-link {
+                display: inline-block;
+                background-color: #f56a6a;
+                color: #ffffff !important;
+                padding: 0.7em 2em;
+                border-radius: 4px;
+                text-decoration: none;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                text-align: center;
+            }
+            
+            .project-link:hover {
+                background-color: #e74c3c;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            /* Contenedor para textos en diferentes idiomas */
+            .lang-en {
+                display: block;
+            }
+            
+            .lang-es {
+                display: none;
+            }
+            
+            /* Estilos específicos para SEN4CAS */
+            .feature-icon {
+                font-size: 2.5em;
+                color: #f56a6a;
+                margin-bottom: 0.5em;
+                text-align: center;
+            }
+            
+            .feature-box {
+                padding: 1.5em;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 5px;
+                margin-bottom: 1.5em;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .feature-box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .feature-title {
+                font-size: 1.2em;
+                margin-bottom: 0.7em;
+                color: #3d4449;
+                text-align: center;
+            }
+            
+            .feature-desc {
+                text-align: center;
+                font-size: 0.95em;
+            }
+            
+            /* Estilo para la demo */
+            .demo-container {
+                background-color: #f5f5f5;
+                border-radius: 5px;
+                padding: 1em;
+                margin: 2em 0;
+            }
+            
+            @media screen and (max-width: 736px) {
+                .language-selector {
+                    margin-right: 5px;
+                }
+                
+                #main header img {
+                    width: 30%;
+                    height: auto;
+                }
+                
+                .feature-box {
+                    padding: 1em;
+                }
+            }
+        </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG2LKLLKE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7SG2LKLLKE');
+</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">GeoWay</a></h1>
+						<nav id="nav">
+                            <!-- Selector de idioma simplificado -->
+                            <div class="language-selector">
+                                <a href="#" class="active" id="en-link">EN</a>
+                                <span class="separator">|</span>
+                                <a href="#" id="es-link">ES</a>
+                            </div>
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li>
+                                                <a href="index.html">
+                                                    <span class="lang-en">Home</span>
+                                                    <span class="lang-es">Inicio</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="generic.html">
+                                                    <span class="lang-en">Projects</span>
+                                                    <span class="lang-es">Proyectos</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="blog.html">
+                                                    <span class="lang-en">lab</span>
+                                                    <span class="lang-es">laboratorio de ideas</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="contact.html">
+                                                    <span class="lang-en">Contact Us</span>
+                                                    <span class="lang-es">Contáctanos</span>
+                                                </a>
+                                            </li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+					
+						<header>
+							<img src="images/Logo5.png" alt="GeoWay Logo" width="20%" height="20%"/><br />
+							<h2>
+                                <span class="lang-en">SEN4CAS</span>
+                                <span class="lang-es">SEN4CAS</span>
+                            </h2>
+							<p>
+                                <span class="lang-en">"Sentinel data for cadastre"</span>
+                                <span class="lang-es">"Datos Sentinel para el catastro"</span>
+                            </p>
+						</header>
+
+						<section class="wrapper style5">
+							<div class="inner">
+								<h2>
+                                    <span class="lang-en">🛰️ Sentinel-1 and Sentinel-2 for New Built-up Area Detection</span>
+                                    <span class="lang-es">🛰️ Sentinel-1 y Sentinel-2 para la de teección de nuevas construcciones</span>
+                                </h2>
+                                
+								<p class="lang-en" style="text-align: justify;">
+                                    SEN4CAS is an interactive tool based on Google Earth Engine that allows detecting new constructions from Sentinel-1 and Sentinel-2 satellite images combined with Open Buildings Footprints data. It aims to facilitate the monitoring of urban sprawl and land use changes through an intuitive interface and advanced analytical capabilities.
+								</p>
+                                
+                                <p class="lang-es" style="text-align: justify;">
+                                    SEN4CAS es una herramienta interactiva basada en Google Earth Engine que permite detectar nuevas construcciones a partir de imágenes de los satélites Sentinel-1 y Sentinel-2, combinadas con datos abiertos de huellas de edificaciones (Open Buildings Footprints). Su objetivo es facilitar el monitoreo de la expansión urbana y los cambios en el uso del suelo mediante una interfaz intuitiva y capacidades analíticas avanzadas.
+                                </p>
+                                
+								<hr />
+						
+								<section class="project-card">
+									<header>
+										<h2 class="project-title">
+                                            <span class="lang-en">About the Project</span>
+                                            <span class="lang-es">Sobre el Proyecto</span>
+                                        </h2>
+									</header>
+
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<a href="https://spectform.projects.earthengine.app/view/sen4cas" class="project-image" target="_blank">
+                                               
+                                            </a>
+										</div>
+									</div>
+									
+									<div class="project-description">
+                                        <span class="image left"><img src="images/senticas.jpeg" alt="Sentinel-4 Icon" style="width: 150px; height: 150px; border-radius: 5px;" /></span>
+                                        
+                                        <p class="lang-en" style="text-align: justify;">
+                                            <b>SEN4CAS</b> is an application under development that explores the use of Sentinel-1 and Sentinel-2 satellite imagery to detect new urban construction. Integrating unsupervised classification techniques (K-means) with Open Buildings Footprints data within Google Earth Engine, the tool compares current spectral patterns with already registered infrastructure, allowing to identify potentially newly built areas.
+                                            
+                                        </p>
+                                        
+                                        <p class="lang-es" style="text-align: justify;">
+                                            <b>SEN4CAS</b> es una aplicación en desarrollo que explora el uso de imágenes satelitales de Sentinel-1 y Sentinel-2 para detectar nuevas construcciones urbanas. Integrando técnicas de clasificación no supervisada (K-means) con datos abiertos de edificaciones (Open Buildings Footprints) dentro de Google Earth Engine, la herramienta compara los patrones espectrales actuales con la infraestructura ya registrada, permitiendo identificar áreas potencialmente construidas recientemente.
+                                           
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="project-description">
+                                        <p class="lang-en" style="text-align: justify;">
+                                            This project is currently in an experimental phase, with the objective of validating replicable methodologies for urban monitoring. SEN4CAS seeks to facilitate access to advanced spatial analysis processes, making available to researchers, public institutions and territorial technicians a light and open interface to test approaches applied to the early detection of land occupation dynamics.
+                                        </p>
+                                        
+                                        <p class="lang-es" style="text-align: justify;">
+                                            Este proyecto se encuentra en fase de experimentación, con el objetivo de validar metodologías replicables para el monitoreo urbano. SEN4CAS busca facilitar el acceso a procesos avanzados de análisis espacial, poniendo a disposición de investigadores, instituciones públicas y técnicos territoriales una interfaz ligera y abierta para probar enfoques aplicados a la detección temprana de dinámicas de ocupación del suelo.
+                                        </p>
+                                    </div>
+								</section>
+                                
+                                <hr />
+                                
+                                <section>
+                                    <header>
+                                        <h2>
+                                            <span class="lang-en">Key Features</span>
+                                            <span class="lang-es">Características Principales</span>
+                                        </h2>
+                                    </header>
+                                    
+                                    <div class="row">
+                                        <div class="col-4 col-12-medium">
+                                            <div class="feature-box">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-clock"></i>
+                                                </div>
+                                                <h3 class="feature-title">
+                                                    <span class="lang-en">Updated Satellite Imagery</span>
+                                                    <span class="lang-es">Imágenes Satelitales Actualizadas</span>
+                                                </h3>
+                                                <p class="feature-desc lang-en">
+                                                    Access recent Sentinel-2 imagery with cloud filtering for high-quality analysis of surface changes over the past 12 months.
+                                                </p>
+                                                <p class="feature-desc lang-es">
+                                                    Acceda a imágenes recientes de Sentinel-2 con filtrado de nubes para un análisis de calidad sobre cambios en el terreno en los últimos 12 meses.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-4 col-12-medium">
+                                            <div class="feature-box">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-chart-line"></i>
+                                                </div>
+                                                <h3 class="feature-title">
+                                                    <span class="lang-en">Unsupervised Classification</span>
+                                                    <span class="lang-es">Clasificación No Supervisada</span>
+                                                </h3>
+                                                <p class="feature-desc lang-en">
+                                                    Apply K-means clustering to detect patterns in land use and isolate spectral signatures linked to new urban development.
+                                                </p>
+                                                <p class="feature-desc lang-es">
+                                                    Aplique clustering K-means para detectar patrones en el uso del suelo y aislar firmas espectrales asociadas a nuevas construcciones.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-4 col-12-medium">
+                                            <div class="feature-box">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-map-marked-alt"></i>
+                                                </div>
+                                                <h3 class="feature-title">
+                                                    <span class="lang-en">New Building Detection</span>
+                                                    <span class="lang-es">Detección de Nuevas Construcciones</span>
+                                                </h3>
+                                                <p class="feature-desc lang-en">
+                                                    Compare building footprints with satellite-based clusters to identify potential new constructions not in official datasets.
+                                                </p>
+                                                <p class="feature-desc lang-es">
+                                                    Compare huellas de edificaciones con los clusters satelitales para identificar posibles nuevas construcciones no registradas oficialmente.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="row">
+                                        <div class="col-4 col-12-medium">
+                                            <div class="feature-box">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </div>
+                                                <h3 class="feature-title">
+                                                    <span class="lang-en">Interactive Mapping</span>
+                                                    <span class="lang-es">Mapeo Interactivo</span>
+                                                </h3>
+                                                <p class="feature-desc lang-en">
+                                                    Navigate through customizable map layers with intuitive controls to focus on specific pollutants or geographic areas.
+                                                </p>
+                                                <p class="feature-desc lang-es">
+                                                    Navegue a través de capas de mapas personalizables con controles intuitivos para enfocarse en contaminantes específicos o áreas geográficas.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-4 col-12-medium">
+                                            <div class="feature-box">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-history"></i>
+                                                </div>
+                                                <h3 class="feature-title">
+                                                    <span class="lang-en">Temporal Analysis</span>
+                                                    <span class="lang-es">Análisis Temporal</span>
+                                                </h3>
+                                                <p class="feature-desc lang-en">
+                                                    Explore historical satellite imagery to detect changes and identify emerging urban patterns over time.
+                                                </p>
+                                                <p class="feature-desc lang-es">
+                                                    Explore imágenes satelitales históricas para detectar cambios e identificar patrones urbanos emergentes a lo largo del tiempo.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-4 col-12-medium">
+                                            <div class="feature-box">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-file-export"></i>
+                                                </div>
+                                                <h3 class="feature-title">
+                                                    <span class="lang-en">Data Export</span>
+                                                    <span class="lang-es">Exportación de Datos</span>
+                                                </h3>
+                                                <p class="feature-desc lang-en">
+                                                    Download data in various formats for further analysis, reporting, or integration and validation with other monitoring systems.
+                                                </p>
+                                                <p class="feature-desc lang-es">
+                                                    Descargue datos en varios formatos para análisis adicional, informes o integración y validación con otros sistemas de monitoreo.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <hr />
+                                
+                                <section>
+                                    <header>
+                                        <h2>
+                                            <span class="lang-en">Interactive Demo</span>
+                                            <span class="lang-es">Demo Interactiva</span>
+                                        </h2>
+                                    </header>
+                                    
+                                    <div class="demo-container">
+                                        <iframe width="100%" height="600" src="https://spectform.projects.earthengine.app/view/sen4cas" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-6 col-12-medium">
+                                            <h3>
+                                                <span class="lang-en">Usage Guide</span>
+                                                <span class="lang-es">Guía de Uso</span>
+                                            </h3>
+                                            <p class="lang-en" style="text-align: justify;">
+                                                SEN4CAS allows you to detect new buildings from Sentinel-2 imagery combined with existing building data. To begin, select a point on the map as the center of the analysis area and click “Detect Buildings” to start processing. The system identifies possible new structures by comparing spectral patterns with official footprints. The results can be exported as a KMZ file for external use, and the application can be restarted at any time to analyze other areas.
+                                            </p>
+                                            <p class="lang-es" style="text-align: justify;">
+                                                SEN4CAS permite detectar nuevas construcciones a partir de imágenes de Sentinel-2 combinadas con datos de edificaciones existentes. Para comenzar, selecciona un punto en el mapa como centro del área de análisis y haz clic en “Detectar Edificaciones” para iniciar el procesamiento. El sistema identifica posibles estructuras nuevas comparando patrones espectrales con huellas oficiales. Los resultados pueden exportarse como archivo KMZ para uso externo, y la aplicación puede reiniciarse en cualquier momento para analizar otras zonas.
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="col-6 col-12-medium">
+                                            <h3>
+                                                <span class="lang-en">Applications</span>
+                                                <span class="lang-es">Aplicaciones</span>
+                                            </h3>
+                                            <p class="lang-en" style="text-align: justify;">
+                                                SEN4CAS is designed to support various communities that need to monitor urban growth and unplanned sprawl. Cadastral and land use planning authorities can use it to update records and detect out-of-standard construction. Urban planners get a clear picture of recent changes in land use. Researchers apply it in studies of urban dynamics and informal growth. It is also a valuable tool in educational settings, for teaching about remote sensing, urban geography and spatial analysis. By facilitating access to open data and replicable analysis, SEN4CAS drives informed land development decisions.
+                                            </p>
+                                            <p class="lang-es" style="text-align: justify;">
+                                                SEN4CAS está diseñado para apoyar a diversas comunidades que necesitan monitorear el crecimiento urbano y la expansión no planificada. Las autoridades catastrales y de ordenamiento territorial pueden usarlo para actualizar registros y detectar construcciones fuera de norma. Los planificadores urbanos obtienen una visión clara de los cambios recientes en el uso del suelo. Los investigadores lo aplican en estudios de dinámica urbana y crecimiento informal. También es una herramienta valiosa en entornos educativos, para enseñar sobre teledetección, geografía urbana y análisis espacial. Al facilitar el acceso a datos abiertos y análisis replicables, SEN4CAS impulsa decisiones informadas sobre el desarrollo del territorio.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row" style="margin-top: 2em;">
+                                        <div class="col-12">
+                                            <a href="https://spectform.projects.earthengine.app/view/sen4cas" class="project-link" target="_blank">
+                                                <span class="lang-en">Open Full Application</span>
+                                                <span class="lang-es">Abrir Aplicación Completa</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <hr />
+                                
+                                <section>
+                                    <header>
+                                        <h2>
+                                            <span class="lang-en">Technical Background</span>
+                                            <span class="lang-es">Antecedentes Técnicos</span>
+                                        </h2>
+                                    </header>
+                                    
+                                    <div class="code-highlight-box">
+                                        <p><strong>Key operation:</strong></p>
+                                        <p class="lang-en" style="text-align: justify;">
+                                            SEN4CAS uses an unsupervised K-means algorithm to identify spectral clusters in Sentinel-2 imagery. These clusters are compared with official building footprints (Open Buildings) to detect possible new unregistered buildings.
+                                        </p>
+                                        <p class="lang-es" style="text-align: justify;">
+                                            SEN4CAS utiliza un algoritmo de K-means no supervisado para identificar agrupaciones espectrales en imágenes Sentinel-2. Estas agrupaciones se comparan con las huellas oficiales de edificaciones (Open Buildings) para detectar posibles nuevas construcciones no registradas.
+                                        </p>
+                                        <pre><code>
+                                            // Clasificación K-means sobre bandas normalizadas
+                                            var bands = ['B2', 'B3', 'B4', 'B8'];
+                                            var input = image.select(bands).divide(10000);
+                                            var training = input.sample({region: aoi, scale: 10, numPixels: 3000});
+                                            var clusterer = ee.Clusterer.wekaKMeans(5).train(training);
+                                            var result = input.cluster(clusterer);
+                                            
+                                            // Comparación con Open Buildings
+                                            var openBuildings = ee.FeatureCollection('GOOGLE/Research/open-buildings/v3/polygons')
+                                              .filterBounds(aoi).filter(ee.Filter.gte('confidence', 0.50));
+                                            var combined = result.addBands(openBuildings.reduceToImage({
+                                              properties: ['building'], reducer: ee.Reducer.first()
+                                            }).unmask(0).gt(0));
+                                            
+                                            // Detección del cluster dominante dentro de edificios conocidos
+                                            var frequency = combined.reduceRegion({
+                                              reducer: ee.Reducer.frequencyHistogram(),
+                                              geometry: aoi,
+                                              scale: 10,
+                                              maxPixels: 1e9
+                                            });
+                                            var buildingCluster = Object.keys(frequency.get('cluster')).reduce(function(a, b) {
+                                              return frequency.get('cluster')[a] > frequency.get('cluster')[b] ? a : b;
+                                            });
+                                        </code></pre>
+                                      </div>
+                                      
+                                </section>
+                                
+                                <hr />
+                                
+                                <section>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p style="font-style: italic; text-align: center;">
+                                                <span class="lang-en">
+                                                    While SEN4CAS seeks to provide useful and up-to-date information on possible new constructions, the results are subject to inherent limitations of the automatic classification methods and the spatial resolution of the satellite data.
+                                                    It is recommended that the findings be interpreted as exploratory indicators and not as definitive evidence. For critical applications - such as official cadastral updates, legal processes or urban interventions - it is suggested to complement with field validation or authoritative sources.
+                                                </span>
+                                                <span class="lang-es">
+                                                    Si bien SEN4CAS busca ofrecer información útil y actualizada sobre posibles nuevas construcciones, los resultados están sujetos a limitaciones inherentes de los métodos de clasificación automática y la resolución espacial de los datos satelitales.
+Se recomienda interpretar los hallazgos como indicadores exploratorios y no como evidencia definitiva. Para aplicaciones críticas —como actualizaciones catastrales oficiales, procesos legales o intervenciones urbanas— se sugiere complementar con validación en terreno o fuentes autorizadas.
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+					</article>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+						<li><a href="https://x.com/tu_usuario" aria-label="X" style="font-weight: bold; font-size: 35px;">𝕏</a></li>
+						<li><a href="https://instagram.com/tu_usuario" class="icon brands fa-instagram" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-youtube" aria-label="YouTube"><span class="label">YouTube</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2025 GEOWAY, <a href="https://geo-way.github.io/GeoWay.io/">– An Open Geospatial Initiative</a> </li> 
+						<li>
+							<span class="lang-en">All rights reserved.</span>
+							<span class="lang-es">Todos los derechos reservados.</span>
+						</li><br>
+						Berlin - Germany
+						<li><a href="privacy.html">
+							<span class="lang-en">Privacy Policy</span>
+							<span class="lang-es">Política de Privacidad</span>
+						</a></li>
+					</ul>
+					<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+				</footer>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+            <!-- Script para el cambio de idioma -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Obtener los elementos del selector de idioma
+                    const enLink = document.getElementById('en-link');
+                    const esLink = document.getElementById('es-link');
+                    
+                    // Función para cambiar el idioma
+                    function changeLanguage(lang) {
+                        // Ocultar todos los elementos de idioma
+                        const enElements = document.querySelectorAll('.lang-en');
+                        const esElements = document.querySelectorAll('.lang-es');
+                        
+                        if (lang === 'en') {
+                            // Mostrar elementos en inglés, ocultar español
+                            enElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+                            esElements.forEach(el => el.style.display = 'none');
+                            
+                            // Actualizar clases activas
+                            enLink.classList.add('active');
+                            esLink.classList.remove('active');
+                        } else {
+                            // Mostrar elementos en español, ocultar inglés
+                            enElements.forEach(el => el.style.display = 'none');
+                            esElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+                            
+                            // Actualizar clases activas
+                            enLink.classList.remove('active');
+                            esLink.classList.add('active');
+                        }
+                        
+                        // Guardar preferencia en localStorage
+                        localStorage.setItem('geoWayLanguage', lang);
+                    }
+                    
+                    // Asignar eventos de clic
+                    enLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        changeLanguage('en');
+                    });
+                    
+                    esLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        changeLanguage('es');
+                    });
+                    
+                    // Cargar idioma guardado o predeterminado
+                    const savedLanguage = localStorage.getItem('geoWayLanguage') || 'en';
+                    changeLanguage(savedLanguage);
+                });
+            </script>
+	</body>
+</html>

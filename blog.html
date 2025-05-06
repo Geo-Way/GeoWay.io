@@ -1,0 +1,1215 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>GeoWay - Lab</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <!-- Font Awesome icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <style>
+            /* Menu background with topographic elements */
+            #menu {
+                background-color: rgba(30, 35, 45, 0.95);
+                background-image: url("images/city.png");
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+            }
+
+            #menu ul li a {
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Language selector styles */
+            .language-selector {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            
+            .language-selector a {
+                color: rgba(255, 255, 255, 0.7);
+                text-decoration: none;
+                font-size: 0.9em;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                transition: color 0.3s ease;
+                padding: 0 0.4em;
+            }
+            
+            .language-selector .separator {
+                color: rgba(255, 255, 255, 0.4);
+                margin: 0 0.2em;
+            }
+            
+            .language-selector a:hover,
+            .language-selector a.active {
+                color: white;
+            }
+            
+            /* Header navigation layout */
+            #header nav {
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Footer social icons */
+            #footer .icons {
+                display: flex;
+                justify-content: center;
+                margin: 0 0 2em 0;
+                flex-wrap: wrap;
+            }
+            
+            #footer .icons li {
+                padding: 0 1em;
+            }
+            
+            #footer .icons a {
+                box-shadow: none;
+                border: none;
+                transition: all 0.3s ease;
+                font-size: 1.4em;
+                color: rgba(255, 255, 255, 0.8);
+                position: relative;
+                top: 0;
+            }
+            
+            #footer .icons a:hover {
+                top: -3px;
+                color: #ff9e4f;
+                position: relative;
+            }
+            
+            /* Language content containers */
+            .lang-en {
+                display: block;
+            }
+            
+            .lang-es {
+                display: none;
+            }
+            
+            /* NEW STYLES FOR LAB PAGE */
+            
+            /* Featured idea card with gradient borders */
+            .featured-idea {
+                border-radius: 8px;
+                padding: 2em;
+                margin-bottom: 3em;
+                background-color: rgba(255, 255, 255, 0.03);
+                position: relative;
+                border: 1px solid;
+                border-image: linear-gradient(135deg, #3498db, #2ecc71) 1;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .featured-idea:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            }
+            
+            .idea-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1.5em;
+            }
+            
+            .idea-date {
+                font-size: 0.9em;
+                opacity: 0.7;
+                font-style: italic;
+            }
+            
+            .idea-tag {
+                display: inline-block;
+                padding: 0.3em 0.8em;
+                margin-right: 0.5em;
+                margin-bottom: 0.5em;
+                border-radius: 30px;
+                font-size: 0.8em;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                background-color: rgba(46, 204, 113, 0.15);
+                color: #2ecc71;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+            
+            .idea-tag:hover {
+                background-color: rgba(46, 204, 113, 0.25);
+                transform: translateY(-2px);
+            }
+            
+            .idea-tag.remote-sensing {
+                background-color: rgba(52, 152, 219, 0.15);
+                color: #3498db;
+            }
+            
+            .idea-tag.urban {
+                background-color: rgba(155, 89, 182, 0.15);
+                color: #9b59b6;
+            }
+            
+            .idea-tag.climate {
+                background-color: rgba(230, 126, 34, 0.15);
+                color: #e67e22;
+            }
+            
+            .idea-title {
+                font-size: 1.8em;
+                margin-bottom: 0.5em;
+                color: #fff;
+                font-weight: 600;
+            }
+            
+            .idea-subtitle {
+                font-size: 1.2em;
+                opacity: 0.85;
+                margin-bottom: 1em;
+                font-weight: 300;
+            }
+            
+            .idea-content {
+                text-align: justify;
+                margin-bottom: 2em;
+                line-height: 1.7;
+            }
+            
+            .read-more {
+                display: inline-flex;
+                align-items: center;
+                color: #3498db;
+                font-weight: 600;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            
+            .read-more i {
+                margin-left: 0.5em;
+                transition: transform 0.3s ease;
+            }
+            
+            .read-more:hover {
+                color: #2ecc71;
+            }
+            
+            .read-more:hover i {
+                transform: translateX(5px);
+            }
+            
+            /* Idea grid layout */
+            .ideas-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 2em;
+                margin-top: 3em;
+            }
+            
+            .idea-card {
+                background-color: rgba(255, 255, 255, 0.03);
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            
+            .idea-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            }
+            
+            .idea-card-image {
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .idea-card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            
+            .idea-card:hover .idea-card-image img {
+                transform: scale(1.05);
+            }
+            
+            .idea-card-content {
+                padding: 1.5em;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .idea-card-tags {
+                margin-bottom: 1em;
+            }
+            
+            .idea-card-title {
+                font-size: 1.4em;
+                margin-bottom: 0.8em;
+                color: #fff;
+                font-weight: 600;
+                line-height: 1.3;
+            }
+            
+            .idea-card-excerpt {
+                margin-bottom: 1.5em;
+                line-height: 1.6;
+                flex-grow: 1;
+            }
+            
+            .idea-card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: auto;
+            }
+            
+            .idea-card-date {
+                font-size: 0.85em;
+                opacity: 0.7;
+            }
+            
+            /* Search and filter section */
+            .search-filter-section {
+                margin-bottom: 3em;
+                padding: 2em;
+                background-color: rgba(255, 255, 255, 0.03);
+                border-radius: 8px;
+            }
+            
+            .search-bar {
+                display: flex;
+                margin-bottom: 1.5em;
+            }
+            
+            .search-input {
+                flex-grow: 1;
+                padding: 0.8em 1.2em;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 4px 0 0 4px;
+                background-color: rgba(255, 255, 255, 0.05);
+                color: #fff;
+                transition: border-color 0.3s ease, background-color 0.3s ease;
+            }
+            
+            .search-input:focus {
+                border-color: #3498db;
+                background-color: rgba(255, 255, 255, 0.08);
+                outline: none;
+            }
+            
+            .search-button {
+                padding: 0.8em 1.5em;
+                border: none;
+                background-color: #3498db;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 0 4px 4px 0;
+                transition: background-color 0.3s ease;
+            }
+            
+            .search-button:hover {
+                background-color: #2980b9;
+            }
+            
+            .filter-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5em;
+            }
+            
+            .filter-tag {
+                padding: 0.5em 1em;
+                border-radius: 25px;
+                background-color: rgba(255, 255, 255, 0.1);
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            
+            .filter-tag:hover, .filter-tag.active {
+                background-color: #3498db;
+                color: #fff;
+            }
+            
+            /* Newsletter section */
+            .newsletter-section {
+                margin-top: 4em;
+                padding: 3em;
+                background-image: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(46, 204, 113, 0.2));
+                border-radius: 8px;
+                text-align: center;
+            }
+            
+            .newsletter-title {
+                font-size: 1.8em;
+                margin-bottom: 0.5em;
+            }
+            
+            .newsletter-description {
+                margin-bottom: 2em;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .newsletter-form {
+                display: flex;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .newsletter-input {
+                flex-grow: 1;
+                padding: 0.8em 1.2em;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 4px 0 0 4px;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #fff;
+            }
+            
+            .newsletter-button {
+                padding: 0.8em 1.5em;
+                border: none;
+                background-color: #2ecc71;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                border-radius: 0 4px 4px 0;
+                transition: background-color 0.3s ease;
+            }
+            
+            .newsletter-button:hover {
+                background-color: #27ae60;
+            }
+            
+            /* Pagination container */
+            .pagination-container {
+                text-align: center;
+                margin: 2em 0;
+                display: none;
+            }
+            
+            .pagination-container .page-number {
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                margin: 0 5px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                color: #fff;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .pagination-container .page-number:hover {
+                background: rgba(52, 152, 219, 0.5);
+            }
+            
+            .pagination-container .page-number.active {
+                background: #3498db;
+                font-weight: bold;
+            }
+            
+            /* Responsive adjustments */
+            @media screen and (max-width: 980px) {
+                .featured-idea {
+                    padding: 1.5em;
+                }
+                
+                .ideas-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                }
+                
+                .newsletter-section {
+                    padding: 2em;
+                }
+            }
+            
+            @media screen and (max-width: 736px) {
+                .language-selector {
+                    margin-right: 5px;
+                }
+                
+                #main header img {
+                    width: 30%;
+                    height: auto;
+                }
+                
+                .ideas-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .idea-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                
+                .idea-date {
+                    margin-top: 0.5em;
+                }
+                
+                .newsletter-form {
+                    flex-direction: column;
+                }
+                
+                .newsletter-input,
+                .newsletter-button {
+                    width: 100%;
+                    border-radius: 4px;
+                }
+                
+                .newsletter-button {
+                    margin-top: 1em;
+                }
+            }
+        </style>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG2LKLLKE"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-7SG2LKLLKE');
+        </script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">GeoWay</a></h1>
+				<nav id="nav">
+                    <!-- Language selector -->
+                    <div class="language-selector">
+                        <a href="#" class="active" id="en-link">EN</a>
+                        <span class="separator">|</span>
+                        <a href="#" id="es-link">ES</a>
+                    </div>
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li>
+                                        <a href="index.html">
+                                            <span class="lang-en">Home</span>
+                                            <span class="lang-es">Inicio</span>
+                                        </a>
+                                    </li>
+									<li>
+                                        <a href="generic.html">
+                                            <span class="lang-en">Projects</span>
+                                            <span class="lang-es">Proyectos</span>
+                                        </a>
+                                    </li>
+									<li>
+                                        <a href="blog.html">
+                                            <span class="lang-en">Lab</span>
+                                            <span class="lang-es">Laboratorio de ideas</span>
+                                        </a>
+                                    </li>
+									<li>
+                                        <a href="contact.html">
+                                            <span class="lang-en">Contact Us</span>
+                                            <span class="lang-es">Contáctanos</span>
+                                        </a>
+                                    </li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<article id="main">
+			
+				<header>
+					<img src="images/Logo5.png" alt="GeoWay Logo" width="20%" height="20%"/><br />
+					<h2>
+                        <span class="lang-en">GEOSPATIAL LAB</span>
+                        <span class="lang-es">LABORATORIO GEOESPACIAL</span>
+                    </h2>
+					<p>
+                        <span class="lang-en">"Exploring Ideas, Building Solutions"</span>
+                        <span class="lang-es">"Explorando Ideas, Construyendo Soluciones"</span>
+                    </p>
+				</header>
+
+				<section class="wrapper style5">
+					<div class="inner">
+						<h2>
+                            <span class="lang-en">🔬 Innovation Playground</span>
+                            <span class="lang-es">🔬 Espacio de Innovación</span>
+                        </h2>
+						<p class="lang-en" style="text-align: justify;">
+                            Welcome to our Geospatial Lab—a space where we experiment with emerging concepts, tools, and methodologies in geospatial science. Here, we share our latest thinking, research directions, and experimental applications that address real-world challenges through spatial innovation. Browse through our collection of ideas, prototypes, and thought experiments that push the boundaries of what's possible with location intelligence.
+						</p>
+                        <p class="lang-es" style="text-align: justify;">
+                            Bienvenido a nuestro Laboratorio Geoespacial—un espacio donde experimentamos con conceptos, herramientas y metodologías emergentes en ciencia geoespacial. Aquí compartimos nuestro pensamiento más reciente, direcciones de investigación y aplicaciones experimentales que abordan desafíos del mundo real a través de la innovación espacial. Explore nuestra colección de ideas, prototipos y experimentos de pensamiento que amplían los límites de lo posible con la inteligencia de ubicación.
+                        </p>
+						
+                        <!-- Search and filter section -->
+                        <section class="search-filter-section">
+                            <div class="search-bar">
+                                <input type="text" class="search-input" placeholder="Search ideas, concepts, technologies...">
+                                <button class="search-button"><i class="fas fa-search"></i></button>
+                            </div>
+                            <div class="filter-tags">
+                                <div class="filter-tag active">All</div>
+                                <div class="filter-tag">Remote Sensing</div>
+                                <div class="filter-tag">Urban Analytics</div>
+                                <div class="filter-tag">Climate Tech</div>
+                                <div class="filter-tag">Open Data</div>
+                                <div class="filter-tag">Machine Learning</div>
+                                <div class="filter-tag">Data Visualization</div>
+                                <div class="filter-tag">Artificial Intelligence</div>
+								<div class="filter-tag">Disaster Management</div>
+                            </div>
+                        </section>
+                        
+                        <!-- Featured idea -->
+                        <section class="featured-idea">
+                            <div class="idea-header">
+                                <div>
+                                    <span class="idea-tag Artificial-intelligence">Artificial intelligence</span>
+                                    <span class="idea-tag Urban-Analytics">Urban Analytics</span>
+									<span class="idea-tag Machine-Learning">Machine Learning</span>
+                                </div>
+                                <span class="idea-date">May 2, 2025</span>
+                            </div>
+                            <h3 class="idea-title">
+                                <span class="lang-en">Sentinel-1 and Sentinel-2 for New Built-up Area Detection</span>
+                                <span class="lang-es">Sentinel-1 y Sentinel-2 para la de teección de nuevas construcciones</span>
+                            </h3>
+                            <h4 class="idea-subtitle">
+                                <span class="lang-en">"Sentinel data for cadastre"</span>
+                                <span class="lang-es">"Datos Sentinel para el catastro"</span>
+                            </h4>
+                            <div class="idea-card-image">
+                                <a href="senticas.html" target="_blank">
+                                    <img src="images/senticat.png" alt="ML-Enhanced Flood Mapping">
+                                </a>
+                            </div>
+                            <div class="idea-content">
+                                <p class="lang-en">
+                                    Unlock the power of real-time weather data integration for your maps! Seamlessly incorporate current weather conditions and five-day forecasts into your projects with MapTiler SDK. Enhance user experience and engagement by providing valuable weather insights at a glance. Elevate your maps today with MapTiler's intuitive weather layers.
+                                </p>
+                                <p class="lang-es">
+                                    ¡Desbloquea el poder de la integración de datos meteorológicos en tiempo real para tus mapas! Incorpora a la perfección las condiciones meteorológicas actuales y pronósticos de cinco días en tus proyectos con MapTiler SDK. Mejora la experiencia del usuario proporcionando valiosa información meteorológica de un vistazo. Eleva tus mapas hoy con las intuitivas capas meteorológicas de MapTiler.
+                                </p>
+                            </div>
+                            <div class="blog-post-social">
+                                <a href="https://twitter.com/intent/tweet?text=Visualizing%20Floods%20in%20the%20Dominican%20Republic" target="_blank"><img src="images/twitter_x.png" alt="Twitter" /></a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bit.ly/EjemploURL&title=Floods%20in%20Duarte" target="_blank"><img src="images/LinkedIn_Logo.svg.png" alt="LinkedIn"/></a>
+                                <a href="mailto:?subject=Flood%20Analysis&body=I%20wanted%20to%20share%20this%20interesting%20analysis%20of%20floods%20in%20the%20Dominican%20Republic"><img src="images/mail.png" alt="Email"/></a>
+                            </div>
+                            <a href="senticas.html" class="read-more">
+                                <span class="lang-en">Read full concept</span>
+                                <span class="lang-es">Leer concepto completo</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </section>
+                        
+                        <!-- Ideas grid -->
+                        <h3>
+                            <span class="lang-en">Recent Ideas & Concepts</span>
+                            <span class="lang-es">Ideas y Conceptos Recientes</span>
+                        </h3>
+                        
+                        <div class="ideas-grid">
+                            <!-- Idea Card 1 -->
+                            <div class="idea-card">
+                                <div class="idea-card-image">
+                                    <img src="images/windi.gif" alt="ML-Enhanced Flood Mapping">
+                                </div>
+                                <div class="idea-card-content">
+                                    <div class="idea-card-tags">
+                                        <span class="idea-tag">Data Visualization</span>
+                                        <span class="idea-tag climate">Climate Tech</span>
+                                    </div>
+                                    <h4 class="idea-card-title">
+                                        <span class="lang-en">Enhance Your Maps with Free Weather Layers from MapTiler SDK</span>
+                                        <span class="lang-es">Mejora tus mapas con capas meteorológicas gratuitas de MapTiler SDK</span>
+                                    </h4>
+                                    <div class="idea-card-excerpt">
+                                        <p class="lang-en">
+                                            Add real-time weather to your maps in seconds. Use MapTiler SDK to integrate current conditions and 5-day forecasts — intuitive layers that boost engagement and make your maps smarter.
+                                        </p>
+                                        <p class="lang-es">
+											Añade el tiempo en tiempo real a tus mapas en cuestión de segundos. Utiliza el SDK de MapTiler para integrar las condiciones actuales y las previsiones a 5 días: capas intuitivas que aumentan la participación y hacen que tus mapas sean más inteligentes.
+                                        </p>
+                                    </div>
+                                    <div class="idea-card-footer">
+                                        <span class="idea-card-date">April 24, 2024</span>
+                                        <a href="#" class="read-more">
+                                            <span class="lang-en">Read more</span>
+                                            <span class="lang-es">Leer más</span>
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Idea Card 2 -->
+                            <div class="idea-card">
+                                <div class="idea-card-image">
+                                    <img src="images/juxtapose-gif.gif" alt="Open Data Ecosystems">
+                                </div>
+                                <div class="idea-card-content">
+                                    <div class="idea-card-tags">
+										<span class="idea-tag">Data Visualization</span>
+                                        <span class="idea-tag">Disaster Management</span>
+                                    </div>
+                                    <h4 class="idea-card-title">
+                                        <span class="lang-en">Visualizing Floods: An Intuitive Comparison with Juxtapose JS</span>
+                                        <span class="lang-es">Visualización de inundaciones: Una comparación intuitiva con Juxtapose JS</span>
+                                    </h4>
+                                    <div class="idea-card-excerpt">
+                                        <p class="lang-en">
+                                            A visual look at recent floods in the Dominican Republic’s Duarte region using Sentinel-1 imagery and Juxtapose JS. Explore the before-and-after impact through an interactive comparison.
+                                        </p>
+                                        <p class="lang-es">
+                                            Una mirada visual a las recientes inundaciones en la región Duarte de la República Dominicana utilizando imágenes de Sentinel-1 y Juxtapose JS. Explora el impacto antes y después a través de una comparación interactiva.
+                                        </p>
+                                    </div>
+                                    <div class="idea-card-footer">
+                                        <span class="idea-card-date">July 18, 2024</span>
+                                        <a href="#" class="read-more">
+                                            <span class="lang-en">Read more</span>
+                                            <span class="lang-es">Leer más</span>
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Idea Card 3 -->
+                            <div class="idea-card">
+                                <div class="idea-card-image">
+                                    <img src="images/pr.jpeg" alt="Digital Twins">
+                                </div>
+                                <div class="idea-card-content">
+                                    <div class="idea-card-tags">
+                                        <span class="idea-tag urban">Urban Analytics</span>
+                                        <span class="idea-tag">Disaster Management</span>
+                                    </div>
+                                    <h4 class="idea-card-title">
+                                        <span class="lang-en">Floods and Tsunamis in 3D with DEM and Open Tools</span>
+                                        <span class="lang-es">Inundaciones y Tsunamis en 3D con DEM y Herramientas Abiertas</span>
+                                    </h4>
+                                    <div class="idea-card-excerpt">
+                                        <p class="lang-en">
+                                            How to implement geospatial tools for flood analysis using satellite data, hydrological models and open source.
+                                        </p>
+                                        <p class="lang-es">
+                                            Cómo implementar herramientas geoespaciales para el análisis de inundaciones usando datos satelitales, modelos hidrológicos y código abierto.
+                                        </p>
+                                    </div>
+                                    <div class="idea-card-footer">
+                                        <span class="idea-card-date">April 10, 2024</span>
+                                        <a href="https://geo-way.github.io/floods_PR.io/" class="read-more">
+                                            <span class="lang-en">Read more</span>
+                                            <span class="lang-es">Leer más</span>
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional cards would go here -->
+                        </div>
+                        
+                        <!-- Load more button -->
+                        <div style="text-align: center; margin-top: 2em;">
+                            <a href="#" class="button primary">
+                                <span class="lang-en">Load More Ideas</span>
+                                <span class="lang-es">Cargar Más Ideas</span>
+                            </a>
+                        </div>
+                        
+                        <!-- Pagination container (initially hidden) -->
+                        <div class="pagination-container"></div>
+                        
+                        <!-- Newsletter section -->
+                        <section class="newsletter-section">
+                            <h3 class="newsletter-title">
+                                <span class="lang-en">Stay Updated with Our Latest Ideas</span>
+                                <span class="lang-es">Mantente Actualizado con Nuestras Últimas Ideas</span>
+                            </h3>
+                            <p class="newsletter-description">
+                                <span class="lang-en">
+                                    Subscribe to our newsletter to receive updates on new concepts, experimental tools, and thought leadership in geospatial innovation.
+                                </span>
+                                <span class="lang-es">
+                                    Suscríbete a nuestro boletín para recibir actualizaciones sobre nuevos conceptos, herramientas experimentales y liderazgo de pensamiento en innovación geoespacial.
+                                </span>
+                            </p>
+                            <form class="newsletter-form">
+                                <input type="email" class="newsletter-input" placeholder="Your email address">
+                                <button type="submit" class="newsletter-button">
+                                    <span class="lang-en">Subscribe</span>
+                                    <span class="lang-es">Suscribirse</span>
+                                </button>
+                            </form>
+                        </section>
+                    </div>
+                </section>
+			</article>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+					<li><a href="https://x.com/tu_usuario" aria-label="X" style="font-weight: bold; font-size: 35px;">𝕏</a></li>
+					<li><a href="https://instagram.com/tu_usuario" class="icon brands fa-instagram" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-youtube" aria-label="YouTube"><span class="label">YouTube</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; 2025 GEOWAY, <a href="https://geo-way.github.io/GeoWay.io/">– An Open Geospatial Initiative</a> </li> 
+					<li>
+						<span class="lang-en">All rights reserved.</span>
+						<span class="lang-es">Todos los derechos reservados.</span>
+					</li><br>
+					Berlin - Germany
+					<li><a href="privacy.html">
+						<span class="lang-en">Privacy Policy</span>
+						<span class="lang-es">Política de Privacidad</span>
+					</a></li>
+				</ul>
+				<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+			</footer>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+        
+        <!-- Script for language switching -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get language selector elements
+                const enLink = document.getElementById('en-link');
+                const esLink = document.getElementById('es-link');
+                
+                // Function to change language
+                function changeLanguage(lang) {
+                    // Hide all language elements
+                    const enElements = document.querySelectorAll('.lang-en');
+                    const esElements = document.querySelectorAll('.lang-es');
+                    
+                    if (lang === 'en') {
+                        // Show English elements, hide Spanish
+                        enElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+                        esElements.forEach(el => el.style.display = 'none');
+                        
+                        // Update active classes
+                        enLink.classList.add('active');
+                        esLink.classList.remove('active');
+                    } else {
+                        // Show Spanish elements, hide English
+                        enElements.forEach(el => el.style.display = 'none');
+                        esElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+                        
+                        // Update active classes
+                        enLink.classList.remove('active');
+                        esLink.classList.add('active');
+                    }
+                    
+                    // Save preference in localStorage
+                    localStorage.setItem('geoWayLanguage', lang);
+                }
+                
+                // Assign click events
+                enLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    changeLanguage('en');
+                });
+                
+                esLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    changeLanguage('es');
+                });
+                
+                // Load saved language or default
+                const savedLanguage = localStorage.getItem('geoWayLanguage') || 'en';
+                changeLanguage(savedLanguage);
+            });
+        </script>
+        
+        <!-- Script for loading more ideas and search functionality -->
+        <script>
+ document.addEventListener('DOMContentLoaded', function() {
+    // Configuration
+    const ideasPerPage = 3; // Number of ideas to show per page
+    const totalIdeas = 12;  // Total ideas available (adjust based on your actual data)
+    let currentlyShown = 3; // Ideas currently shown (initial 3)
+    let currentFilterTag = 'All'; // Current filter
+    
+    // Reference to the load more button
+    const loadMoreButton = document.querySelector('.button.primary');
+    
+    // Reference to the ideas grid
+    const ideasGrid = document.querySelector('.ideas-grid');
+    
+    // References for search and filtering
+    const searchInput = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.search-button');
+    const filterTags = document.querySelectorAll('.filter-tag');
+    
+    // Pagination container (initially hidden)
+    const paginationContainer = document.querySelector('.pagination-container');
+    
+    // Sample data for additional ideas (replace with your actual data)
+    // Added href property to all items
+    const sampleIdeas = [
+        {
+            image: "images/OIG4.png",
+            tags: ["Urban Analytics", "Open Data"],
+            titleEn: "Exploring the seasonal dynamics of urban biomass ",
+            titleEs: "Explora la dinámica estacional de la biomasa urbana",
+            excerptEn: "An interactive tool to visualize historical data, analyze temporal trends and customize layers to support sustainable planning and environmental education.",
+            excerptEs: "Una herramienta interactiva que permite visualizar datos históricos, analizar tendencias temporales y personalizar capas para apoyar la planificación sostenible y la educación ambiental.",
+            date: "March 30, 2024",
+            href: "greencity.html"
+        },
+        {
+            image: "images/maptiler.png",
+            tags: ["Remote Sensing", "Urban Analytics"],
+            titleEn: "Urban3D: 3D City Modeling Platform",
+            titleEs: "Urban3D: Plataforma de Modelado 3D de Ciudades",
+            excerptEn: "Open source platform for creating, analyzing and visualizing 3D urban models. It combines LiDAR data, satellite imagery and building information to generate detailed digital twins. It includes tools for shadow, visibility and solar potential analysis, supporting sustainable urban planning.",
+            excerptEs: "Plataforma de código abierto para crear, analizar y visualizar modelos urbanos en 3D. Combina datos LiDAR, imágenes satelitales e información de edificaciones para generar gemelos digitales detallados. Incluye herramientas para análisis de sombras, visibilidad y potencial solar, apoyando la planificación urbana sostenible.",
+            date: "March 25, 2025",
+            href: "https://geo-way.github.io/urban3d.io/"
+        },
+        {
+            image: "images/dss_logo.png",
+            tags: ["Disaster Management", "Open Data"],
+            titleEn: "Decision Support System for Forest Fires",
+            titleEs: "Sistema de ayuda a la toma de decisiones en incendios forestales",
+            excerptEn: "DSS-FIRE arises from the increase in forest fires and their severe impacts, especially in developing countries. The project seeks to strengthen decision making through the use of Earth observation technologies, geospatial analysis and cloud computing.",
+            excerptEs: "DSS-FIRE surge ante el aumento de incendios forestales y sus graves impactos, especialmente en países en desarrollo. El proyecto busca fortalecer la toma de decisiones mediante el uso de tecnologías de observación de la Tierra, análisis geoespacial y computación en la nube.",
+            date: "March 18, 2025",
+            href: "https://dss-fire.github.io/unspider_log.io/"
+        },
+        {
+            image: "images/comming.png",
+            tags: ["Climate Tech", "Data Visualization"],
+            titleEn: "Interactive Sea Level Rise Visualization",
+            titleEs: "Visualización Interactiva del Aumento del Nivel del Mar",
+            excerptEn: "Creating engaging visualizations to help communities understand the potential impacts of sea level rise.",
+            excerptEs: "Creación de visualizaciones atractivas para ayudar a las comunidades a comprender los posibles impactos del aumento del nivel del mar.",
+            date: "March 10, 2025",
+            href: "https://geo-way.github.io/sea-level-viz/"
+        },
+        {
+            image: "images/comming.png",
+            tags: ["Machine Learning", "Remote Sensing"],
+            titleEn: "Crop Yield Prediction Models",
+            titleEs: "Modelos de Predicción de Rendimiento de Cultivos",
+            excerptEn: "Developing machine learning models to predict crop yields based on satellite imagery and climate data.",
+            excerptEs: "Desarrollo de modelos de aprendizaje automático para predecir rendimientos de cultivos basados en imágenes satelitales y datos climáticos.",
+            date: "March 5, 2025",
+            href: "https://geo-way.github.io/crop-yield-prediction/"
+        },
+        {
+            image: "images/comming.png",
+            tags: ["Urban Analytics", "Data Visualization"],
+            titleEn: "3D Urban Heat Island Mapping",
+            titleEs: "Mapeo 3D de Islas de Calor Urbano",
+            excerptEn: "Creating three-dimensional visualizations of urban heat islands to support climate resilience planning.",
+            excerptEs: "Creación de visualizaciones tridimensionales de islas de calor urbano para apoyar la planificación de resiliencia climática.",
+            date: "February 28, 2025",
+            href: "https://geo-way.github.io/heat-island-mapping/"
+        },
+        {
+            image: "images/comming.png",
+            tags: ["Open Data", "Climate Tech"],
+            titleEn: "Collaborative Disaster Response Platform",
+            titleEs: "Plataforma Colaborativa de Respuesta a Desastres",
+            excerptEn: "Building an open platform for coordinating disaster response efforts using real-time geospatial data.",
+            excerptEs: "Construcción de una plataforma abierta para coordinar esfuerzos de respuesta a desastres utilizando datos geoespaciales en tiempo real.",
+            date: "February 20, 2025",
+            href: "https://geo-way.github.io/disaster-response/"
+        },
+        {
+            image: "images/comming.png",
+            tags: ["Machine Learning", "Urban Analytics"],
+            titleEn: "Traffic Pattern Optimization",
+            titleEs: "Optimización de Patrones de Tráfico",
+            excerptEn: "Using AI to analyze and optimize urban traffic patterns for reduced congestion and emissions.",
+            excerptEs: "Uso de IA para analizar y optimizar patrones de tráfico urbano para reducir la congestión y las emisiones.",
+            date: "February 15, 2025",
+            href: "https://geo-way.github.io/traffic-optimization/"
+        }
+    ];
+    
+    // Collect all original cards (first 3) for filtering
+    const originalCards = [];
+    document.querySelectorAll('.ideas-grid .idea-card').forEach((card, index) => {
+        originalCards.push({
+            element: card,
+            tags: Array.from(card.querySelectorAll('.idea-tag')).map(tag => tag.textContent.trim())
+        });
+    });
+    
+    // Function to create a new idea card
+    function createIdeaCard(idea) {
+        const language = localStorage.getItem('geoWayLanguage') || 'en';
+        const isEnglish = language === 'en';
+        
+        // Create title element with link if href exists
+        const titleContent = idea.href 
+            ? `<a href="${idea.href}" class="idea-title-link">
+                <span class="lang-en">${idea.titleEn}</span>
+                <span class="lang-es">${idea.titleEs}</span>
+               </a>`
+            : `<span class="lang-en">${idea.titleEn}</span>
+               <span class="lang-es">${idea.titleEs}</span>`;
+        
+        // Create read more arrow with link if href exists
+        const readMoreLink = idea.href 
+            ? `<a href="${idea.href}" class="read-more">
+                <i class="fas fa-arrow-right"></i>
+               </a>`
+            : `<a href="#" class="read-more">
+                <i class="fas fa-arrow-right"></i>
+               </a>`;
+        
+        const cardHTML = `
+            <div class="idea-card">
+                <div class="idea-card-image">
+                    <img src="${idea.image}" alt="${isEnglish ? idea.titleEn : idea.titleEs}">
+                </div>
+                <div class="idea-card-content">
+                    <div class="idea-card-tags">
+                        ${idea.tags.map(tag => `<span class="idea-tag ${tag.toLowerCase().replace(' ', '-')}">${tag}</span>`).join('')}
+                    </div>
+                    <h4 class="idea-card-title">
+                        ${titleContent}
+                    </h4>
+                    <div class="idea-card-excerpt">
+                        <p class="lang-en">
+                            ${idea.excerptEn}
+                        </p>
+                        <p class="lang-es">
+                            ${idea.excerptEs}
+                        </p>
+                    </div>
+                    <div class="idea-card-footer">
+                        <span class="idea-card-date">${idea.date}</span>
+                        ${readMoreLink}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = cardHTML.trim();
+        return tempDiv.firstChild;
+    }
+    
+    // Function to load more ideas
+    function loadMoreIdeas() {
+        // Check if we've already shown all ideas
+        if (currentlyShown >= totalIdeas) {
+            loadMoreButton.style.display = 'none';
+            return;
+        }
+        
+        // Load the next batch of ideas
+        const end = Math.min(currentlyShown + ideasPerPage, totalIdeas);
+        
+        for (let i = currentlyShown; i < end; i++) {
+            const ideaIndex = i - 3; // Adjust index for the sampleIdeas array
+            if (ideaIndex >= 0 && ideaIndex < sampleIdeas.length) {
+                const newCard = createIdeaCard(sampleIdeas[ideaIndex]);
+                ideasGrid.appendChild(newCard);
+            }
+        }
+        
+        // Update the count of currently shown ideas
+        currentlyShown = end;
+        
+        // Hide the load more button if we've shown all ideas
+        if (currentlyShown >= totalIdeas) {
+            loadMoreButton.style.display = 'none';
+            // Show pagination instead
+            showPagination();
+        }
+        
+        // Apply active language
+        const savedLanguage = localStorage.getItem('geoWayLanguage') || 'en';
+        applyLanguage(savedLanguage);
+        
+        // Apply current filter
+        applyFilter(currentFilterTag);
+    }
+    
+    // Function to show pagination
+    function showPagination() {
+        const totalPages = Math.ceil(totalIdeas / ideasPerPage);
+        paginationContainer.innerHTML = '';
+        
+        for (let i = 1; i <= totalPages; i++) {
+            const pageNumber = document.createElement('span');
+            pageNumber.className = 'page-number' + (i === 1 ? ' active' : '');
+            pageNumber.textContent = i;
+            pageNumber.addEventListener('click', () => {
+                // Handle page change
+                document.querySelectorAll('.page-number').forEach(el => el.classList.remove('active'));
+                pageNumber.classList.add('active');
+                showIdeasForPage(i);
+            });
+            paginationContainer.appendChild(pageNumber);
+        }
+        
+        paginationContainer.style.display = 'block';
+    }
+    
+    // Function to show ideas for a specific page
+    function showIdeasForPage(page) {
+        const startIndex = (page - 1) * ideasPerPage;
+        const endIndex = startIndex + ideasPerPage;
+        
+        // Hide all ideas
+        document.querySelectorAll('.idea-card').forEach((card, index) => {
+            card.style.display = 'none';
+        });
+        
+        // Show ideas for current page
+        document.querySelectorAll('.idea-card').forEach((card, index) => {
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'block';
+            }
+        });
+        
+        // Apply current filter
+        applyFilter(currentFilterTag);
+    }
+    
+    // Function to apply language
+    function applyLanguage(lang) {
+        const enElements = document.querySelectorAll('.lang-en');
+        const esElements = document.querySelectorAll('.lang-es');
+        
+        if (lang === 'en') {
+            enElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+            esElements.forEach(el => el.style.display = 'none');
+        } else {
+            enElements.forEach(el => el.style.display = 'none');
+            esElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+        }
+    }
+    
+    // Function to apply filter
+    function applyFilter(tag) {
+        currentFilterTag = tag;
+        const allCards = document.querySelectorAll('.idea-card');
+        
+        allCards.forEach(card => {
+            const cardTags = Array.from(card.querySelectorAll('.idea-tag')).map(tag => tag.textContent.trim());
+            
+            if (tag === 'All' || cardTags.includes(tag)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // Function to search ideas
+    function searchIdeas(query) {
+        const allCards = document.querySelectorAll('.idea-card');
+        const language = localStorage.getItem('geoWayLanguage') || 'en';
+        query = query.toLowerCase();
+        
+        allCards.forEach(card => {
+            const title = card.querySelector(language === 'en' ? '.lang-en' : '.lang-es').textContent.toLowerCase();
+            const excerpt = card.querySelector('.idea-card-excerpt ' + (language === 'en' ? '.lang-en' : '.lang-es')).textContent.toLowerCase();
+            const tags = Array.from(card.querySelectorAll('.idea-tag')).map(tag => tag.textContent.toLowerCase());
+            
+            if (
+                title.includes(query) || 
+                excerpt.includes(query) || 
+                tags.some(tag => tag.includes(query))
+            ) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // Add event listener to load more button
+    loadMoreButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        loadMoreIdeas();
+    });
+    
+    // Add event listeners to filter tags
+    filterTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            // Remove active class from all tags
+            filterTags.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tag
+            this.classList.add('active');
+            
+            // Apply filter
+            applyFilter(this.textContent.trim());
+        });
+    });
+    
+    // Add event listener for search
+    searchButton.addEventListener('click', function() {
+        const query = searchInput.value.trim();
+        if (query) {
+            searchIdeas(query);
+        } else {
+            // If search is empty, reset to current filter
+            applyFilter(currentFilterTag);
+        }
+    });
+    
+    // Allow search on Enter key
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchButton.click();
+        }
+    });
+    
+    // Show pagination
+    showPagination();
+});
+        </script>
+
+</body>
+</html>

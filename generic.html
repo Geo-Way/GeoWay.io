@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GeoWay - Projects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <!-- Font Awesome para iconos modernos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <style>
+/* Estilo para menú con imagen de fondo de curvas de nivel topográficas más visibles */
+#menu {
+    background-color: rgba(30, 35, 45, 0.95);
+    background-image: url("images/city.png");
+    background-size: cover;
+    background-position: center;
+	background-blend-mode: overlay;
+}
+
+#menu ul li a {
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+            /* Estilos compartidos con index */
+            .language-selector {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            
+            .language-selector a {
+                color: rgba(255, 255, 255, 0.7);
+                text-decoration: none;
+                font-size: 0.9em;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                transition: color 0.3s ease;
+                padding: 0 0.4em;
+            }
+            
+            .language-selector .separator {
+                color: rgba(255, 255, 255, 0.4);
+                margin: 0 0.2em;
+            }
+            
+            .language-selector a:hover,
+            .language-selector a.active {
+                color: white;
+            }
+            
+            /* Asegurarnos de que nav contenga los elementos correctamente */
+            #header nav {
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Mejora de los iconos sociales en el footer */
+            #footer .icons {
+                display: flex;
+                justify-content: center;
+                margin: 0 0 2em 0;
+                flex-wrap: wrap;
+            }
+            
+            #footer .icons li {
+                padding: 0 1em;
+            }
+            
+            #footer .icons a {
+                box-shadow: none;
+                border: none;
+                transition: all 0.3s ease;
+                font-size: 1.4em;
+                color: rgba(255, 255, 255, 0.8);
+                position: relative;
+                top: 0;
+            }
+            
+            #footer .icons a:hover {
+                top: -3px;
+                color: #ff9e4f;
+                position: relative;
+            }
+            
+            /* Estilos específicos para la página de proyectos */
+            .project-card {
+                margin-bottom: 2em;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            
+            .project-image {
+                border-radius: 5px;
+                overflow: hidden;
+                margin-bottom: 1em;
+                display: block;
+            }
+            
+            .project-image img {
+                transition: transform 0.5s ease;
+            }
+            
+            .project-image:hover img {
+                transform: scale(1.05);
+            }
+            
+            .project-title {
+                margin-bottom: 0.5em;
+                color: #3d4449;
+            }
+            
+            .project-category {
+                font-size: 0.9em;
+                color: #7f888f;
+                margin-bottom: 1em;
+            }
+            
+            .project-description {
+                text-align: justify;
+                margin-bottom: 1.5em;
+            }
+            
+            .project-link {
+                display: inline-block;
+                background-color: #f56a6a;
+                color: #ffffff !important;
+                padding: 0.7em 2em;
+                border-radius: 4px;
+                text-decoration: none;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                text-align: center;
+            }
+            
+            .project-link:hover {
+                background-color: #e74c3c;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            /* Contenedor para textos en diferentes idiomas */
+            .lang-en {
+                display: block;
+            }
+            
+            .lang-es {
+                display: none;
+            }
+            
+            @media screen and (max-width: 736px) {
+                .language-selector {
+                    margin-right: 5px;
+                }
+                
+                #main header img {
+                    width: 30%;
+                    height: auto;
+                }
+            }
+        </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG2LKLLKE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7SG2LKLLKE');
+</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">GeoWay</a></h1>
+						<nav id="nav">
+                            <!-- Selector de idioma simplificado -->
+                            <div class="language-selector">
+                                <a href="#" class="active" id="en-link">EN</a>
+                                <span class="separator">|</span>
+                                <a href="#" id="es-link">ES</a>
+                            </div>
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li>
+                                                <a href="index.html">
+                                                    <span class="lang-en">Home</span>
+                                                    <span class="lang-es">Inicio</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="generic.html">
+                                                    <span class="lang-en">Projects</span>
+                                                    <span class="lang-es">Proyectos</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="blog.html">
+                                                    <span class="lang-en">lab</span>
+                                                    <span class="lang-es">laboratorio de ideas</span>
+                                                </a>
+                                            </li>
+											<li>
+                                                <a href="contact.html">
+                                                    <span class="lang-en">Contact Us</span>
+                                                    <span class="lang-es">Contáctanos</span>
+                                                </a>
+                                            </li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+					
+						<header>
+							<img src="images/Logo5.png" alt="GeoWay Logo" width="20%" height="20%"/><br />
+							<h2>
+                                <span class="lang-en">PROJECTS</span>
+                                <span class="lang-es">PROYECTOS</span>
+                            </h2>
+							<p>
+                                <span class="lang-en">"Applied - Open - Replicable"</span>
+                                <span class="lang-es">"Aplicados - Abiertos - Replicables"</span>
+                            </p>
+						</header>
+
+						<section class="wrapper style5">
+							<div class="inner">
+								<h2>
+                                    <span class="lang-en">🧭 What We're Building:</span>
+                                    <span class="lang-es">🧭 Lo que estamos construyendo:</span>
+                                </h2>
+								<p class="lang-en" style="text-align: justify;">We build and test simple geospatial tools to tackle real-world problems — from Earth observation and remote sensing to risk mapping and lightweight app development.
+									Each project is practical, based on open data and technologies, and designed to be useful, adaptable, and easy to grasp.
+									We share what works (and what doesn't), so others can learn from it, build on it, or make it better.
+								</p>
+                                <p class="lang-es" style="text-align: justify;">Construimos y probamos herramientas geoespaciales simples para abordar problemas del mundo real: desde observación terrestre y teledetección hasta mapeo de riesgos y desarrollo de aplicaciones ligeras.
+                                    Cada proyecto es práctico, basado en datos y tecnologías abiertas, y diseñado para ser útil, adaptable y fácil de entender.
+                                    Compartimos lo que funciona (y lo que no), para que otros puedan aprender de ello, construir sobre ello o mejorarlo.
+                                </p>
+								<hr />
+						
+								<section class="project-card">
+									<header>
+										<h2 class="project-title">
+                                            <span class="lang-en">DSS-FIRE</span>
+                                            <span class="lang-es">DSS-FIRE</span>
+                                        </h2>
+										<p class="project-category">
+                                            <span class="lang-en">Category: <a href="#">Wildfire Management</a> | <a href="#">Remote Sensing</a></span>
+                                            <span class="lang-es">Categoría: <a href="#">Gestión de Incendios</a> | <a href="#">Teledetección</a></span>
+                                        </p>
+									</header>
+
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<a href="https://dss-fire.github.io/unspider_log.io/" class="project-image" target="_blank">
+                                                <div class="col-12"><span class="image fit"><img src="images/dss.png" alt="DSS-FIRE Project" /></span></div>
+                                            </a>
+										</div>
+									</div>
+									
+									<div class="project-description">
+                                        <span class="image left"><img src="images/dss_logo.png" alt="DSS-FIRE Icon" style="width: 150px; height: 150px; border-radius: 5px;" /></span>
+                                        
+                                        <p class="lang-en" style="text-align: justify;">
+                                            <b>DSS-FIRE</b> is a comprehensive decision support system for wildfire management that integrates satellite data, climate models (ERA5), and machine learning algorithms to generate susceptibility maps and risk predictions. The system utilizes Google Earth Engine to process large volumes of geospatial data, combining vegetation indices and meteorological data for advanced analysis.
+                                        </p>
+                                        
+                                        <p class="lang-es" style="text-align: justify;">
+                                            <b>DSS-FIRE</b> es un sistema integral de apoyo a la decisión para la gestión de incendios forestales que integra datos satelitales, modelos climáticos (ERA5) y algoritmos de aprendizaje automático para generar mapas de susceptibilidad y predicciones de riesgo. El sistema utiliza Google Earth Engine para procesar grandes volúmenes de datos geoespaciales, combinando índices de vegetación y datos meteorológicos para un análisis avanzado.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="project-description">
+                                        <p class="lang-en" style="text-align: justify;">
+                                            This innovative platform addresses wildfire challenges through a cloud-based infrastructure that enables real-time analysis and prediction. It has been validated through case studies in Latin America and Africa, demonstrating its effectiveness in various environmental contexts. DSS-FIRE empowers decision-makers with critical information for wildfire prevention, early detection, and response planning, contributing to more effective environmental protection and community safety.
+                                        </p>
+                                        
+                                        <p class="lang-es" style="text-align: justify;">
+                                            Esta innovadora plataforma aborda los desafíos de los incendios forestales a través de una infraestructura basada en la nube que permite el análisis y la predicción en tiempo real. Ha sido validada mediante estudios de caso en América Latina y África, demostrando su eficacia en diversos contextos ambientales. DSS-FIRE proporciona a los tomadores de decisiones información crítica para la prevención de incendios forestales, la detección temprana y la planificación de respuestas, contribuyendo a una protección ambiental y seguridad comunitaria más efectivas.
+                                        </p>
+                                    </div>
+                                    
+                                    <a href="https://dss-fire.github.io/unspider_log.io/" class="project-link" target="_blank">
+                                        <span class="lang-en">View Project</span>
+                                        <span class="lang-es">Ver Proyecto</span>
+                                    </a>
+								</section>
+                                
+                                <hr />
+                                
+								<section class="project-card">
+									<header>
+										<h2 class="project-title">
+                                            <span class="lang-en">THE GREEN CITY APP</span>
+                                            <span class="lang-es">LA APP GREEN CITY</span>
+                                        </h2>
+										<p class="project-category">
+                                            <span class="lang-en">Category: <a href="#">Smart cities</a></span>
+                                            <span class="lang-es">Categoría: <a href="#">Ciudades inteligentes</a></span>
+                                        </p>
+									</header>
+
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<a href="greencity.html" class="project-image">
+                                                <div class="col-12"><span class="image fit"><img src="images/green2.jpeg" alt="Green City Project" /></span></div>
+                                            </a>
+										</div>
+									</div>
+									
+									<div class="project-description">
+                                        <span class="image left"><img src="images/OIG4.png" alt="Green City Icon" style="width: 150px; height: 150px; border-radius: 5px;" /></span>
+                                        
+                                        <p class="lang-en" style="text-align: justify;">
+                                            "<b>The Green City</b>" is an innovative application developed for Berlin using <b>Google Earth Engine (GEE)</b>. It aims to provide insights into biomass availability across seasons. Featuring a user-friendly interface, the app allows for interactive exploration, temporal analysis, and layer customization. It serves as an educational tool for students, researchers, and urban planners interested in understanding urban biomass dynamics and formulating sustainable strategies. Start exploring urban biomass dynamics today with "The Green City" app and join us in creating a greener future.
+                                        </p>
+                                        
+                                        <p class="lang-es" style="text-align: justify;">
+                                            "<b>The Green City</b>" es una aplicación innovadora desarrollada para Berlín utilizando <b>Google Earth Engine (GEE)</b>. Su objetivo es proporcionar información sobre la disponibilidad de biomasa a lo largo de las estaciones. Con una interfaz fácil de usar, la aplicación permite la exploración interactiva, el análisis temporal y la personalización de capas. Sirve como herramienta educativa para estudiantes, investigadores y urbanistas interesados en comprender la dinámica de la biomasa urbana y formular estrategias sostenibles. Comience a explorar la dinámica de la biomasa urbana hoy con la aplicación "The Green City" y únase a nosotros para crear un futuro más verde.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="project-description">
+                                        <p class="lang-en" style="text-align: justify;">
+                                            "The Green City" is an innovative web application accessible on the GeoWay website, providing developers with valuable insights into the availability of biomass resources in specific geographic areas. Initially focusing on residual biomass from agricultural fields in selected European countries, the app now includes secondary biomass resources from industrial activities like the timber and agri-food industries. Users can initiate resource calculations by pinpointing a location on the map or selecting predefined points. The system requires information on collection points for biomass transportation cost estimation. Results are presented in tons of dry matter per year or in energy content value, considering average collection costs. Serving as a comprehensive tool for biomass assessment and planning, "The Green City" facilitates informed decision-making for sustainable development.
+                                        </p>
+                                        
+                                        <p class="lang-es" style="text-align: justify;">
+                                            "The Green City" es una innovadora aplicación web accesible en el sitio web de GeoWay, que proporciona a los desarrolladores información valiosa sobre la disponibilidad de recursos de biomasa en áreas geográficas específicas. Inicialmente centrada en la biomasa residual de campos agrícolas en países europeos seleccionados, la aplicación ahora incluye recursos de biomasa secundaria de actividades industriales como las industrias maderera y agroalimentaria. Los usuarios pueden iniciar cálculos de recursos señalando una ubicación en el mapa o seleccionando puntos predefinidos. El sistema requiere información sobre puntos de recolección para la estimación de costos de transporte de biomasa. Los resultados se presentan en toneladas de materia seca por año o en valor de contenido energético, considerando los costos promedio de recolección. Como herramienta integral para la evaluación y planificación de biomasa, "The Green City" facilita la toma de decisiones informadas para el desarrollo sostenible.
+                                        </p>
+                                    </div>
+                                    
+                                    <a href="greencity.html" class="project-link">
+                                        <span class="lang-en">View Project</span>
+                                        <span class="lang-es">Ver Proyecto</span>
+                                    </a>
+								</section>
+                                
+                                <hr />
+                                
+                                <!-- Espacio para futuros proyectos -->
+                                <section>
+                                    <header>
+                                        <h2>
+                                            <span class="lang-en">More Projects Coming Soon</span>
+                                            <span class="lang-es">Más Proyectos Próximamente</span>
+                                        </h2>
+                                    </header>
+                                    <p class="lang-en">
+                                        Stay tuned as we continue to develop and release new geospatial tools and applications.
+                                    </p>
+                                    <p class="lang-es">
+                                        Estén atentos mientras continuamos desarrollando y lanzando nuevas herramientas y aplicaciones geoespaciales.
+                                    </p>
+                                </section>
+                            </div>
+                        </section>
+					</article>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+						<li><a href="https://x.com/tu_usuario" aria-label="X" style="font-weight: bold; font-size: 35px;">𝕏</a></li>
+						<li><a href="https://instagram.com/tu_usuario" class="icon brands fa-instagram" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-youtube" aria-label="YouTube"><span class="label">YouTube</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2025 GEOWAY, <a href="https://geo-way.github.io/GeoWay.io/">– An Open Geospatial Initiative</a> </li> 
+						<li>
+							<span class="lang-en">All rights reserved.</span>
+							<span class="lang-es">Todos los derechos reservados.</span>
+						</li><br>
+						Berlin - Germany
+						<li><a href="privacy.html">
+							<span class="lang-en">Privacy Policy</span>
+							<span class="lang-es">Política de Privacidad</span>
+						</a></li>
+					</ul>
+					<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+				</footer>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+            <!-- Script para el cambio de idioma -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Obtener los elementos del selector de idioma
+                    const enLink = document.getElementById('en-link');
+                    const esLink = document.getElementById('es-link');
+                    
+                    // Función para cambiar el idioma
+                    function changeLanguage(lang) {
+                        // Ocultar todos los elementos de idioma
+                        const enElements = document.querySelectorAll('.lang-en');
+                        const esElements = document.querySelectorAll('.lang-es');
+                        
+                        if (lang === 'en') {
+                            // Mostrar elementos en inglés, ocultar español
+                            enElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+                            esElements.forEach(el => el.style.display = 'none');
+                            
+                            // Actualizar clases activas
+                            enLink.classList.add('active');
+                            esLink.classList.remove('active');
+                        } else {
+                            // Mostrar elementos en español, ocultar inglés
+                            enElements.forEach(el => el.style.display = 'none');
+                            esElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+                            
+                            // Actualizar clases activas
+                            enLink.classList.remove('active');
+                            esLink.classList.add('active');
+                        }
+                        
+                        // Guardar preferencia en localStorage
+                        localStorage.setItem('geoWayLanguage', lang);
+                    }
+                    
+                    // Asignar eventos de clic
+                    enLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        changeLanguage('en');
+                    });
+                    
+                    esLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        changeLanguage('es');
+                    });
+                    
+                    // Cargar idioma guardado o predeterminado
+                    const savedLanguage = localStorage.getItem('geoWayLanguage') || 'en';
+                    changeLanguage(savedLanguage);
+                });
+            </script>
+	</body>
+</html>
