@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CityTank · Real‑time Fuel Prices in Berlin | GeoWay</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="CityTank is an interactive geovisor that shows live fuel prices from Tankerkönig, with price indicators, animated routes, and historical trends." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG2LKLLKE"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-7SG2LKLLKE');
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">GeoWay</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="generic.html">Projects</a></li>
+									<li><a href="blog.html">Blog & News</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<article id="main">
+				<header>
+					<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+					<h2>CityTank: Real‑Time Fuel Price Map for Berlin</h2>
+					<p>Empowering drivers with live fuel data, price trends, and navigation</p>
+				</header>
+				<section class="wrapper style5">
+					<div class="inner">
+
+						<h2>Never overpay for fuel again</h2>
+						<p><strong>CityTank</strong> is an open‑source, interactive geovisor built with <strong>OpenLayers</strong> and <strong>Chart.js</strong> that displays real‑time fuel prices from the <a href="https://www.tankerkoenig.de" target="_blank">Tankerkönig API</a>. It helps drivers in Berlin find the cheapest gas station nearby, compare prices, and navigate there effortlessly – all in a sleek, mobile‑friendly interface.</p>
+
+						<h3>✨ Key Features</h3>
+						<ul>
+							<li><strong>Live price updates</strong> – stations are refreshed every 5 minutes for a 5 km radius.</li>
+							<li><strong>Intelligent color coding</strong> – markers change from green (cheaper) to red (more expensive) based on the selected fuel type (Diesel, E5, E10).</li>
+							<li><strong>Cheapest station highlight</strong> – a rotating gold ring makes the most affordable gas station stand out.</li>
+							<li><strong>Zone statistics</strong> – see the average, minimum, and maximum price in the current view.</li>
+							<li><strong>Historical trend chart</strong> – a small line chart shows the last 30 days of average fuel prices in Germany.</li>
+							<li><strong>Global oil context</strong> – displays the current Brent crude price and its daily change.</li>
+							<li><strong>Geolocation</strong> – center the map on your location with a pulsing blue dot and a subtle red buffer.</li>
+							<li><strong>City search</strong> – jump to major German cities using a dropdown list.</li>
+							<li><strong>Animated routes</strong> – click “Show route on map” in a station’s popup to see an animated path (red line with a moving dot) from your position to the station, powered by OSRM.</li>
+							<li><strong>One‑tap navigation</strong> – the popup also includes a button that opens Google Maps with direct directions.</li>
+						</ul>
+
+						<h3>🛠️ Technology Stack</h3>
+						<ul>
+							<li><strong>OpenLayers</strong> – for all map rendering, layers, and interactions.</li>
+							<li><strong>Chart.js</strong> – for the lightweight historical price graph.</li>
+							<li><strong>Tankerkönig API</strong> – real‑time fuel price data (CC BY 4.0).</li>
+							<li><strong>OSRM</strong> – driving route calculation.</li>
+							<li><strong>Nominatim (OpenStreetMap)</strong> – geocoding for city search.</li>
+							<li><strong>Trading Economics</strong> – Brent crude oil price reference.</li>
+						</ul>
+
+						<h3>🚀 Try CityTank live</h3>
+						<p>The application runs entirely in your browser – no installation needed. Use the embedded demo below or open it in a new tab:</p>
+						<iframe src="https://geo-way.github.io/CityTank/" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+						<p style="text-align:center; margin-top:0.5em;"><a href="https://geo-way.github.io/CityTank/" target="_blank" class="button primary">Open CityTank in new tab</a></p>
+
+						<hr />
+
+						<h4>Data Sources & Attribution</h4>
+						<p><strong>Real‑time fuel prices:</strong> Provided by <a href="https://www.tankerkoenig.de" target="_blank">Tankerkönig</a> under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.<br/>
+						<strong>Map data:</strong> © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>.<br/>
+						<strong>Routing:</strong> <a href="http://project-osrm.org/" target="_blank">OSRM</a> – open source routing.<br/>
+						<strong>Oil price:</strong> <a href="https://tradingeconomics.com/commodity/brent-crude-oil" target="_blank">Trading Economics</a> – Brent crude reference.<br/>
+						<strong>Historical chart data:</strong> illustrative demo values; for production a dedicated API would be used.</p>
+
+						<p><em>CityTank is an open‑source project. You can find the code, contribute, or report issues on <a href="https://github.com/geo-way/CityTank" target="_blank">GitHub</a>.</em></p>
+
+					</div>
+				</section>
+			</article>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; 2026 GEOWAY, <a href="https://geo-way.github.io/GeoWay.io/">Technology-Based initiative - IBT.</a></li>
+					<li>All rights reserved.</li><br>
+					Berlin - Germany
+					<li><a href="privacy.html">Privacy Policy</a></li>
+				</ul>
+				<img src="images/Logo5.png" alt="GeoWay Logo" width="10%" height="10%"/><br />
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
